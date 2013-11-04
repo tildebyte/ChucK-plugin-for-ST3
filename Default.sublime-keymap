@@ -1,0 +1,23 @@
+[
+  {
+    "keys": ["alt+k", "l"], "command": "ck_loop_vm"
+  },
+  {
+    "keys": ["alt+k", "."], "command": "ck_kill_vm"
+  },
+  {
+    "keys": ["alt+k", "a"], "command": "ck_add_shred"
+  },
+  {
+    "keys": ["alt+k", "r"], "command": "ck_remove_shred"
+  },
+  {
+    "keys": ["alt+k", "p"], "command": "ck_replace_shred"
+  },
+  {
+    "keys": ["alt+k", "c"], "command": "ck_clear_vm"
+  },
+  {
+    "keys": ["alt+k", "h"], "command": "ck_ugen_help"
+  }
+]
