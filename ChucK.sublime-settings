@@ -1,6 +1,6 @@
 {
-    // ChucK directory (use double \\ in Windows)
-    "ck_dir": "C:\\Program Files (x86)\\ChucK\\bin",
+    // forward slashes instead of double backslashes, and some users may not have (x86)
+    "ck_dir": "C:/Program Files/ChucK/bin",
 
     // ChucK command name
     "ck_exe": "chuck",
