@@ -3,11 +3,11 @@
 
         "completions":
         [
-                { "trigger": "if", "contents": "if( ${1:boolean} )\n{\n\t${2:body};${3}\n}\n" },
-                { "trigger": "else", "contents": "else\n{\n\t${2:body};${3}\n}\n" },
-                { "trigger": "while", "contents": "while( ${1:true} )\n{\n\t${2:body};${3}\n}\n" },
-                { "trigger": "until", "contents": "until( ${1:false} )\n{\n\t${2:body};${3}\n}\n" },
-                { "trigger": "do", "contents": "do {\n\t${2:body};${3}\n} until( ${1:false} )\n" },
+                { "trigger": "if", "contents": "if( ${1:boolean} ){\n\t${2:body};${3}\n}\n" },
+                { "trigger": "else", "contents": "else{\n\t${2:body};${3}\n}\n" },
+                { "trigger": "while", "contents": "while( ${1:true} ){\n\t${2:body};${3}\n}\n" },
+                { "trigger": "until", "contents": "until( ${1:false} ){\n\t${2:body};${3}\n}\n" },
+                { "trigger": "do", "contents": "do{\n\t${2:body};${3}\n} until( ${1:false} )\n" },
                 { "trigger": "arr", "contents": "@=> ${1:type} ${2:name}[];\n" },
                 { "trigger": "pr", "contents": "<<< ${1} >>>;\n" },
                 { "trigger": "Std.abs", "contents": "Std.abs( ${1:int} )" },
