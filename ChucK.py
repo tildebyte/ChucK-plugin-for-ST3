@@ -99,7 +99,7 @@ class Ck_add_shredCommand(sublime_plugin.WindowCommand):
             line = view.line(point)
             line_str = view.substr(line)
             # if the selection comprises of only character and it's a ( or ), expand
-            if (point.a == point.b) and (line_str[0] == '(' or line_str[0] == ')'):
+            if (point.a == point.b) and (line_str[0] in '()'):
                 view.run_command("expand_selection", {"to": "brackets"})
             sel = view.sel()
             region = view.line(sel[0])
