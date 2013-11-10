@@ -4,7 +4,7 @@ author: Dealga McArdle, 2013.
 http://www.sublimetext.com/docs/2/api_reference.html
  
 Installation
-- place iteration_notation.py in Data/Packages/User
+- place iternotate.py in Data/Packages/User
 - place dictionary entry in Keybindings, User
 { "keys": ["ctrl+shift+["], "command": "iternotate" }
  
