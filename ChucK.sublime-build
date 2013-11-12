@@ -1,0 +1,6 @@
+{
+    "shell_cmd": "chuck + \"$file_name\"",
+    "working_dir": "$file_path",
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.ck"
+}
