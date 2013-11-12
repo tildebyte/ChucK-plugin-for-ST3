@@ -18,6 +18,9 @@
     "keys": ["alt+k", "c"], "command": "ck_clear_vm"
   },
   {
-    "keys": ["alt+k", "h"], "command": "ck_ugen_help"
-  }
+    "keys": ["ctrl+shift+]"], "command": "chuck_doc_search"
+  },
+  {
+    "keys": ["ctrl+shift+["], "command": "iternotate"
+  },
 ]
