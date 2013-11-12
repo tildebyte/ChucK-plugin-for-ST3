@@ -17,7 +17,7 @@ sublime API docs:   sublimetext.com/docs/2/api_reference.html
 import sublime, sublime_plugin
 import webbrowser
 
-ugens = [
+ugens = [ugen.lower() for ugen in [
     'dac', 'adc', 'blackhole', 'Gain', 'Noise', 'Impulse', 
     'Step', 'HalfRect', 'FullRect', 'ZeroX', 'BiQuad', 'Filter', 
     'OnePole', 'TwoPole', 'OneZero', 'TwoZero', 'PoleZero', 'LPF', 
@@ -30,7 +30,7 @@ ugens = [
     'BeeThree', 'FMVoices', 'HevyMetl', 'PercFlut', 'Rhodey', 
     'TubeBell', 'Wurley', 'Delay', 'DelayA', 'DelayL', 'Echo', 
     'Envelope', 'ADSR', 'JCRev', 'NRev', 'PRCRev', 'Chorus', 
-    'Modulate', 'PitShift', 'SubNoise', 'WvIn', 'WaveLoop', 'WvOut']
+    'Modulate', 'PitShift', 'SubNoise', 'WvIn', 'WaveLoop', 'WvOut']]
 
 def open_browser(dest, specific=[]):
     chuck_princeton = "http://chuck.cs.princeton.edu"
@@ -40,18 +40,20 @@ def open_browser(dest, specific=[]):
     webbrowser.open(url)
 
 def find_docs(ugen):
+    ugen = ugen.lower()
 
-    if ugen == "Std":
+    if ugen == "std":
         open_browser("/doc/program/stdlib.html")
         return
 
     if ugen in ugens:
         open_browser("/doc/program/ugen_full.html", ugen)
+    # the online docs are not complete! 
     elif ugen in ["SndBuf2"]:
         print("{0} is valid.. search for SndBuf instead".format(ugen))
     else:
         print('not a ugen, not known, or incorrect spelling')
-        print('could offer correct spelling, or replace it if match')
+
 
 
 class ChuckDocSearch(sublime_plugin.TextCommand):
