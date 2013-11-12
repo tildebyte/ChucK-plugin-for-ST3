@@ -27,6 +27,9 @@ http://chuck.cs.princeton.edu
 - Syntax definition/coloring (Nathan Leiby).
 - Completions (quaestor).
 
+## Notes
+- The default keybinds for UGen lookup and iternotate conflict with fold/unfold
+
 ## Known bugs
 Probably many
 
