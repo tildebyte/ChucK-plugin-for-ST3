@@ -10,6 +10,7 @@
                 { "trigger": "do", "contents": "do{\n\t${2:body};${3}\n} until( ${1:false} )\n" },
                 { "trigger": "arr", "contents": "@=> ${1:type} ${2:name}[];\n" },
                 { "trigger": "pr", "contents": "<<< ${1} >>>;\n" },
+                { "trigger": "fun", "contents": "fun ${2:return} ${1:name}(${3:arg_type} ${4:arg}){\n\t${5:body};\n\treturn ${6:val};\n}\n" },
                 { "trigger": "Std.abs", "contents": "Std.abs( ${1:int} )" },
                 { "trigger": "Std.fabs", "contents": "Std.fabs( ${1:float} )" },
                 { "trigger": "Std.sgn", "contents": "Std.sgn( ${1:float} )" },
