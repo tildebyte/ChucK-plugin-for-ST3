@@ -1,6 +1,6 @@
 {
     "selector": "source.chuck",
-    "shell_cmd": "chuck --verbose:2 \"$file_name\"",
+    "cmd": ["chuck", "--verbose:2", "$file_name"],
     "working_dir": "$file_path",
-    "file_regex": "([a-zA-Z0-9\\-_]*\\.ck), ((?<=line)[0-9]+)"
+    "file_regex": "^\\[(.*)\\].line\\(([0-9]+)\\).char\\(([0-9]+)\\): (.*)$",
 }
