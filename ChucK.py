@@ -4,11 +4,7 @@ import sys
 import subprocess
 import threading
 import webbrowser
-
-try:
-    from Queue import Queue, Empty
-except ImportError:
-    from queue import Queue, Empty  # python 3.x
+from queue import Queue, Empty
 
 ON_POSIX = 'posix' in sys.builtin_module_names
 
@@ -40,12 +36,17 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
             ck_dir = settings.get("ck_dir")
             ck_exe = settings.get("ck_exe")
             # print "Starting ChucK : "+ck_dir+ck_exe
-            Ck_loop_vmCommand.chuck_process = subprocess.Popen([ck_exe, '--loop', '-v2'], cwd=ck_dir, bufsize=1, close_fds=ON_POSIX, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
-            Ck_loop_vmCommand.chuck_queue = Queue()
-            Ck_loop_vmCommand.chuck_thread = threading.Thread(target=enqueue_output, args=(Ck_loop_vmCommand.chuck_process.stdout, Ck_loop_vmCommand.chuck_queue))
-            Ck_loop_vmCommand.chuck_thread.daemon = True  # thread dies with the program
-            Ck_loop_vmCommand.chuck_thread.start()
-            # print "ChucK has started"
+            
+            chuck_initialization = [ck_exe, '--shell', '--loop']
+
+            Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_initialization, 
+                cwd=ck_dir, 
+                bufsize=1, 
+                close_fds=ON_POSIX, 
+                stdin=subprocess.PIPE, 
+                stdout=subprocess.PIPE, 
+                stderr=subprocess.STDOUT, 
+                universal_newlines=True, shell=True)
 
         sublime.set_timeout(self.scrolldown, 100)
         sublime.set_timeout(self.poll, 1000)
