@@ -47,6 +47,14 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
                 stdout=subprocess.PIPE, 
                 stderr=subprocess.STDOUT, 
                 universal_newlines=True, shell=True)
+                
+            Ck_loop_vmCommand.chuck_queue = Queue()
+            Ck_loop_vmCommand.chuck_thread = threading.Thread(target=enqueue_output, args=(Ck_loop_vmCommand.chuck_process.stdout, Ck_loop_vmCommand.chuck_queue))
+            
+            # thread dies with the program
+            Ck_loop_vmCommand.chuck_thread.daemon = True  
+            Ck_loop_vmCommand.chuck_thread.start()
+            print("ChucK has started")
 
         sublime.set_timeout(self.scrolldown, 100)
         sublime.set_timeout(self.poll, 1000)
