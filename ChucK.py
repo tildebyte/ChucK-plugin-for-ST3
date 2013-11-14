@@ -37,11 +37,10 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
             ck_exe = settings.get("ck_exe")
             print("Starting ChucK : "+ck_dir + " " + ck_exe)
             
-            chuck_initialization = [ck_exe, '--shell', '--loop']
+            chuck_init = [ck_exe, '--shell', '--loop']
 
-            Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_initialization, 
-                cwd=ck_dir, 
-                bufsize=1, 
+            Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_init, 
+                cwd=ck_dir, bufsize=1, 
                 close_fds=ON_POSIX, 
                 stdin=subprocess.PIPE, 
                 stdout=subprocess.PIPE, 
@@ -49,7 +48,14 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
                 universal_newlines=True, shell=True)
                 
             Ck_loop_vmCommand.chuck_queue = Queue()
-            Ck_loop_vmCommand.chuck_thread = threading.Thread(target=enqueue_output, args=(Ck_loop_vmCommand.chuck_process.stdout, Ck_loop_vmCommand.chuck_queue))
+
+            threading_args = (
+                Ck_loop_vmCommand.chuck_process.stdout, 
+                Ck_loop_vmCommand.chuck_queue)
+
+            Ck_loop_vmCommand.chuck_thread = threading.Thread(
+                target=enqueue_output, 
+                args=threading_args)
             
             # thread dies with the program
             Ck_loop_vmCommand.chuck_thread.daemon = True  
@@ -99,10 +105,9 @@ class Ck_kill_vmCommand(sublime_plugin.WindowCommand):
         print("Stopping ChucK")
         if Ck_loop_vmCommand.chuck_thread is not None and Ck_loop_vmCommand.chuck_thread.isAlive():
             print('enters here')
-            Ck_loop_vmCommand.chuck_process.stdin.write("--kill --all")
+            Ck_loop_vmCommand.chuck_process.stdin.write("--kill")
             Ck_loop_vmCommand.chuck_process.stdin.write("\x0c")
             Ck_loop_vmCommand.chuck_process.stdin.flush()
-
             # subprocess.call(["chuck", "--kill"])   
 
 
