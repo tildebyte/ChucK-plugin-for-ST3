@@ -26,7 +26,7 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
     def run(self):
         # create output panel
         if Ck_loop_vmCommand.output_view is None:
-            # print "Creating output view for ChucK"
+            print("Creating output view for ChucK")
             Ck_loop_vmCommand.panel_name = "ChucK"
             Ck_loop_vmCommand.output_view = self.window.get_output_panel(Ck_loop_vmCommand.panel_name)
 
@@ -35,7 +35,7 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
             settings = sublime.load_settings("ChucK.sublime-settings")
             ck_dir = settings.get("ck_dir")
             ck_exe = settings.get("ck_exe")
-            # print "Starting ChucK : "+ck_dir+ck_exe
+            print("Starting ChucK : "+ck_dir + " " + ck_exe)
             
             chuck_initialization = [ck_exe, '--shell', '--loop']
 
