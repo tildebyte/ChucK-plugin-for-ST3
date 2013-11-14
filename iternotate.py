@@ -1,25 +1,25 @@
 '''
-author: Dealga McArdle, 2013. 
- 
+author: Dealga McArdle, 2013.
+
 http://www.sublimetext.com/docs/2/api_reference.html
- 
+
 Installation
 - place iternotate.py in Data/Packages/User
 - place dictionary entry in Keybindings, User
 { "keys": ["ctrl+shift+["], "command": "iternotate" }
- 
+
 Usage
 
-Select the shorthand i..4 or i..iterable like below, select the full line 
-(including whitespace if there). Then press ctrl+shift+[ 
+Select the shorthand i..4 or i..iterable like below, select the full line
+(including whitespace if there). Then press ctrl+shift+[
 
 The plugin will output
- 
+
   // i..5
   for(0 => int i; i<5; i++){
       i;
   }
-  
+
   // i..iterable
   for(0 => int i; i<iterable.cap(); i++){
       iterable[i];
@@ -37,7 +37,7 @@ def check_is_loopform(istr):
     restr = istr.lstrip()
     spaces = len(istr) - len(restr)
     restr = restr.strip()
-    
+
     # python 2.6 has no 'startswith'
     msg = """must be like:  i..n  or  i..iterable\n
 - i can be any identifier\
@@ -52,23 +52,23 @@ def check_is_loopform(istr):
         print(msg)
         return
 
-    # will return information in last element about how to rewrite   
+    # will return information in last element about how to rewrite
     return [spaces, elements, elements[1].isnumeric()]
-      
+
 
 def perform_replacement(istr):
     content = check_is_loopform(istr)
 
     if not content:
         print("read the debug statements carefully")
-        return 
+        return
 
     ostr = """\
-{0}for(0 => int {1}; {1}<{2}.cap(); {1}++){{
+{0}for( 0 => int {1}; {1} < {2}.cap(); {1}++ ){{
 {0}    {2}[{1}];\n{0}}}"""
 
     ostr2 = """\
-{0}for(0 => int {1}; {1}<{2}; {1}++){{
+{0}for( 0 => int {1}; {1} < {2}; {1}++ ){{
 {0}    {1};\n{0}}}"""
 
 
@@ -107,11 +107,11 @@ class Iternotate(sublime_plugin.TextCommand):
         # finalize this edit, use as one undo level
         #view.end_edit(edit)
 
-    
-    def enabled(self):
-        '''only allow 1 selection for version 0.1''' 
 
-        sels   = self.view.sel()    # lists regions, 
+    def enabled(self):
+        '''only allow 1 selection for version 0.1'''
+
+        sels   = self.view.sel()    # lists regions,
         nsels  = len(sels)          # dir(sels[0]) for methods
         fsel   = sels[0]            # first selection
 
