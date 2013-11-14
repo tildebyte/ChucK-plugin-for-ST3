@@ -65,7 +65,7 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
             ckReturnedSomething = True
             somethingHappened = False
 
-            edit = Ck_loop_vmCommand.output_view.begin_edit()
+            # edit = Ck_loop_vmCommand.output_view.begin_edit()
 
             while ckReturnedSomething:
                 try:
@@ -74,9 +74,12 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
                     ckReturnedSomething = False
                 else:
                     somethingHappened = True
-                    Ck_loop_vmCommand.output_view.insert(edit, Ck_loop_vmCommand.output_view.size(), line.decode("utf-8", "ignore"))
+                    size = Ck_loop_vmCommand.output_view.size()
+                    print('line:', line)
+                    content =  line.decode("utf-8", "ignore")
+                    Ck_loop_vmCommand.output_view.insert(edit, size, content)
 
-            Ck_loop_vmCommand.output_view.end_edit(edit)
+            # Ck_loop_vmCommand.output_view.end_edit(edit)
 
             if somethingHappened:
                 sublime.set_timeout(self.scrolldown, 100)
@@ -92,10 +95,15 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
 # command to stop ChucK interpreter chuck
 class Ck_kill_vmCommand(sublime_plugin.WindowCommand):
     def run(self):
-        # print "Stopping ChucK"
+
+        print("Stopping ChucK")
         if Ck_loop_vmCommand.chuck_thread is not None and Ck_loop_vmCommand.chuck_thread.isAlive():
-            Ck_loop_vmCommand.chuck_process.stdin.write("--kill")
+            print('enters here')
+            Ck_loop_vmCommand.chuck_process.stdin.write("--kill --all")
+            Ck_loop_vmCommand.chuck_process.stdin.write("\x0c")
             Ck_loop_vmCommand.chuck_process.stdin.flush()
+
+            # subprocess.call(["chuck", "--kill"])   
 
 
 # command to send the current line to chuck
@@ -107,16 +115,27 @@ class Ck_add_shredCommand(sublime_plugin.WindowCommand):
             point = sel[0]
             line = view.line(point)
             line_str = view.substr(line)
-            # if the selection comprises of only character and it's a ( or ), expand
-            if (point.a == point.b) and (line_str[0] in '()'):
-                view.run_command("expand_selection", {"to": "brackets"})
-            sel = view.sel()
-            region = view.line(sel[0])
-            lines = view.substr(region).split("\n")
-            for l in lines:
-                Ck_loop_vmCommand.chuck_process.stdin.write(l.encode("utf-8", "ignore")+"\n")
-            Ck_loop_vmCommand.chuck_process.stdin.write("\x0c")
-            Ck_loop_vmCommand.chuck_process.stdin.flush()
+
+            # user has pressed add shred, probably wants to add active view as a shred
+            # we have options, we can either:
+            # - send the "+ file.ck" command to shell
+            # - use the "on the fly" feature to send the selected code/view to shell
+            # - have another mode:
+            #       - send .ck (current view)
+            #       - send selected lines to evaluate as new minishred
+
+
+            # # if the selection comprises of only character and it's a ( or ), expand
+            # if (point.a == point.b) and (line_str[0] in '()'):
+            #     view.run_command("expand_selection", {"to": "brackets"})
+            # sel = view.sel()
+            # region = view.line(sel[0])
+            # lines = view.substr(region).split("\n")
+            # for l in lines:
+            #     Ck_loop_vmCommand.chuck_process.stdin.write(l.encode("utf-8", "ignore")+"\n")
+            # Ck_loop_vmCommand.chuck_process.stdin.write("\x0c")
+            # Ck_loop_vmCommand.chuck_process.stdin.flush()
+
 
 
 # command to show the ChucK console
@@ -143,16 +162,17 @@ class Ck_clear_vmCommand(sublime_plugin.WindowCommand):
             Ck_loop_vmCommand.chuck_process.stdin.flush()
 
 
-# search for help on current word on SCCode.org
-class Ck_ugen_helpCommand(sublime_plugin.WindowCommand):
-    ckcode_ugen_url = None
+# I think we can handle this better seperately
 
-    def run(self):
-        if Ck_ugen_helpCommand.ckcode_ugen_url is None:
-            settings = sublime.load_settings("ChucK.sublime-settings")
-            Ck_ugen_helpCommand.ckcode_ugen_url = settings.get("ckcode_ugen_url")
-        view = self.window.active_view()
-        sel = view.sel()
-        point = sel[0]
-        word = view.word(point)
-        webbrowser.open_new_tab(Ck_ugen_helpCommand.ckcode_ugen_url+view.substr(word))
+# class Ck_ugen_helpCommand(sublime_plugin.WindowCommand):
+#     ckcode_ugen_url = None
+
+#     def run(self):
+#         if Ck_ugen_helpCommand.ckcode_ugen_url is None:
+#             settings = sublime.load_settings("ChucK.sublime-settings")
+#             Ck_ugen_helpCommand.ckcode_ugen_url = settings.get("ckcode_ugen_url")
+#         view = self.window.active_view()
+#         sel = view.sel()
+#         point = sel[0]
+#         word = view.word(point)
+#         webbrowser.open_new_tab(Ck_ugen_helpCommand.ckcode_ugen_url+view.substr(word))
