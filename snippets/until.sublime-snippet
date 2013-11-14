@@ -1,0 +1,9 @@
+<snippet>
+    <description>Until...</description>
+    <content><![CDATA[until( ${1:false} ){
+	${0:body;}
+}
+]]></content>
+    <tabTrigger>until</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

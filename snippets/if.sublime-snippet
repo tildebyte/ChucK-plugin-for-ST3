@@ -1,0 +1,9 @@
+<snippet>
+    <description>If...</description>
+    <content><![CDATA[if( ${1:boolean} ){
+	${0:body;}
+}
+]]></content>
+    <tabTrigger>if</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

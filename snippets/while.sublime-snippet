@@ -1,0 +1,9 @@
+<snippet>
+    <description>While...</description>
+    <content><![CDATA[while( ${1:boolean} ){
+	${0:body;}
+}
+]]></content>
+    <tabTrigger>while</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

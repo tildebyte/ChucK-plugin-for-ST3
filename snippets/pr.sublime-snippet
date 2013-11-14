@@ -1,0 +1,7 @@
+<snippet>
+    <description>Print...</description>
+    <content><![CDATA[<<< ${1} >>>;
+]]></content>
+    <tabTrigger>pr</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

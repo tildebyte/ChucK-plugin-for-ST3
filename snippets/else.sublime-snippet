@@ -1,0 +1,9 @@
+<snippet>
+    <description>Else...</description>
+    <content><![CDATA[else{
+	${0:body;}
+}
+]]></content>
+    <tabTrigger>else</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

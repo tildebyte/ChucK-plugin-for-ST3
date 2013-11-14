@@ -1,0 +1,7 @@
+<snippet>
+    <scope>source.chuck</scope>
+    <description>@=> array</description>
+    <tabTrigger>arr</tabTrigger>
+    <content><![CDATA[@=> ${1:type} ${2:name}[];
+]]></content>
+</snippet>

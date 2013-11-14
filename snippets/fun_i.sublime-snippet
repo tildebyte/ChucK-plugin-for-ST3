@@ -1,0 +1,10 @@
+<snippet>
+    <description>Int fun</description>
+    <content><![CDATA[fun int ${1:name}(${3:arg_type} ${4:arg}){
+    ${0:body;}
+    return;
+}
+]]></content>
+    <tabTrigger>fun</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

@@ -1,0 +1,10 @@
+<snippet>
+    <description>Polar fun</description>
+    <content><![CDATA[fun polar ${1:name}(${3:arg_type} ${4:arg}){
+	${0:body;}
+	return;
+}
+]]></content>
+    <tabTrigger>fun</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>

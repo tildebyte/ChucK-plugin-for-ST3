@@ -1,0 +1,9 @@
+<snippet>
+    <description>Void fun</description>
+    <content><![CDATA[fun void ${1:name}(${3:arg_type} ${4:arg}){
+    ${0:body;}
+}
+]]></content>
+    <tabTrigger>fun</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
