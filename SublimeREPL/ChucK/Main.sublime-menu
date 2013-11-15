@@ -1,0 +1,27 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "ChucK",
+                 "id": "repl_chuck",
+                 "mnemonic": "k",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["chuck", "--shell", "--verbose:2"],
+                    "cwd": "$file_path",
+                    "syntax": "Packages/ChucK-plugin-for-ST3/ChucK.tmLanguage",
+                    "external_id": "chuck"
+                    }
+                }
+            ]
+        }]
+    }
+]

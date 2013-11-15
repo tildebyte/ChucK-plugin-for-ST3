@@ -1,0 +1,11 @@
+[
+    {
+        "caption": "SublimeREPL: ChucK",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_chuck",
+            "file": "config/ChucK/Main.sublime-menu"
+        }
+    },
+
+]
