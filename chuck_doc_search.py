@@ -40,7 +40,7 @@ def open_browser(dest, specific=[]):
     webbrowser.open(url)
 
 def find_docs(ugen):
-    ugen = ugen.lower()
+    ugen = ugen.lower().strip()
 
     if ugen == "std":
         open_browser("/doc/program/stdlib.html")
