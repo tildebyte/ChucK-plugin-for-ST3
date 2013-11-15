@@ -1,0 +1,173 @@
+{
+        "scope": "source.chuck",
+
+        "completions":
+        [ 
+            // TWELVE TONES PER OCTAVE
+            // 5 note scales
+            {"trigger": "Scale.Minor Pentatonic", "contents": "[0,3,5,7,10] => int scale_Minor_Pentatonic[];"},
+            {"trigger": "Scale.Major Pentatonic", "contents": "[0,2,4,7,9] => int scale_Major_Pentatonic[];"},
+
+            // another mode of major pentatonic
+            {"trigger": "Scale.Ritusen", "contents": "[0,2,5,7,9] => int scale_Ritusen[];"},
+
+            // another mode of major pentatonic
+            {"trigger": "Scale.Egyptian", "contents": "[0,2,5,7,10] => int scale_Egyptian[];"},
+             
+            {"trigger": "Scale.Kumai", "contents": "[0,2,3,7,9] => int scale_Kumai[];"},
+            {"trigger": "Scale.Hirajoshi", "contents": "[0,2,3,7,8] => int scale_Hirajoshi[];"},
+            {"trigger": "Scale.Iwato", "contents": "[0,1,5,6,10] => int scale_Iwato[];"},
+            {"trigger": "Scale.Chinese", "contents": "[0,4,6,7,11] => int scale_Chinese[];"},
+            {"trigger": "Scale.Indian", "contents": "[0,4,5,7,10] => int scale_Indian[];"},
+            {"trigger": "Scale.Pelog", "contents": "[0,1,3,7,8] => int scale_Pelog[];"},
+             
+            {"trigger": "Scale.Prometheus", "contents": "[0,2,4,6,11] => int scale_Prometheus[];"},
+            {"trigger": "Scale.Scriabin", "contents": "[0,1,4,7,9] => int scale_Scriabin[];"},
+             
+            // han chinese pentatonic scales
+            {"trigger": "Scale.Gong", "contents": "[0,2,4,7,9] => int scale_Gong[];"},
+            {"trigger": "Scale.Shang", "contents": "[0,2,5,7,10] => int scale_Shang[];"},
+            {"trigger": "Scale.Jiao", "contents": "[0,3,5,8,10] => int scale_Jiao[];"},
+            {"trigger": "Scale.Zhi", "contents": "[0,2,5,7,9] => int scale_Zhi[];"},
+            {"trigger": "Scale.Yu", "contents": "[0,3,5,7,10] => int scale_Yu[];"},
+             
+             
+            // 6 note scales
+            {"trigger": "Scale.Augmented", "contents": "[0,3,4,7,8,11] => int scale_Augmented[];"},
+            {"trigger": "Scale.Augmented 2", "contents": "[0,1,4,5,8,9] => int scale_Augmented_2[];"},
+             
+            // Partch's Otonalities and Utonalities
+            {"trigger": "Scale.Partch Otonality 1", "contents": "[0,8,14,20,25,34] => int scale_Partch_Otonality_1[];"},
+            {"trigger": "Scale.Partch Otonality 2", "contents": "[0,7,13,18,27,35] => int scale_Partch_Otonality_2[];"},
+            {"trigger": "Scale.Partch Otonality 3", "contents": "[0,6,12,21,29,36] => int scale_Partch_Otonality_3[];"},
+            {"trigger": "Scale.Partch Otonality 4", "contents": "[0,5,15,23,30,37] => int scale_Partch_Otonality_4[];"},
+            {"trigger": "Scale.Partch Otonality 5", "contents": "[0,10,18,25,31,38] => int scale_Partch_Otonality_5[];"},
+            {"trigger": "Scale.Partch Otonality 6", "contents": "[0,9,16,22,28,33] => int scale_Partch_Otonality_6[];"},
+            {"trigger": "Scale.Partch Utonality 1", "contents": "[0,9,18,23,29,35] => int scale_Partch_Utonality_1[];"},
+            {"trigger": "Scale.Partch Utonality 2", "contents": "[0,8,16,25,30,36] => int scale_Partch_Utonality_2[];"},
+            {"trigger": "Scale.Partch Utonality 3", "contents": "[0,7,14,22,31,37] => int scale_Partch_Utonality_3[];"},
+            {"trigger": "Scale.Partch Utonality 4", "contents": "[0,6,13,20,28,38] => int scale_Partch_Utonality_4[];"},
+            {"trigger": "Scale.Partch Utonality 5", "contents": "[0,5,12,18,25,33] => int scale_Partch_Utonality_5[];"},
+            {"trigger": "Scale.Partch Utonality 6", "contents": "[0,10,15,21,27,34] => int scale_Partch_Utonality_6[];"},
+             
+            // hexatonic modes with no tritone
+            {"trigger": "Scale.Hex Major 7", "contents": "[0,2,4,7,9,11] => int scale_Hex_Major_7[];"},
+            {"trigger": "Scale.Hex Dorian", "contents": "[0,2,3,5,7,10] => int scale_Hex_Dorian[];"},
+            {"trigger": "Scale.Hex Phrygian", "contents": "[0,1,3,5,8,10] => int scale_Hex_Phrygian[];"},
+            {"trigger": "Scale.Hex Sus", "contents": "[0,2,5,7,9,10] => int scale_Hex_Sus[];"},
+            {"trigger": "Scale.Hex Major 6", "contents": "[0,2,4,5,7,9] => int scale_Hex_Major_6[];"},
+            {"trigger": "Scale.Hex Aeolian", "contents": "[0,3,5,7,8,10] => int scale_Hex_Aeolian[];"},
+             
+            // 7 note scales
+            {"trigger": "Scale.Major", "contents": "[0,2,4,5,7,9,11] => int scale_Major[];"},
+            {"trigger": "Scale.Ionian", "contents": "[0,2,4,5,7,9,11] => int scale_Ionian[];"},
+            {"trigger": "Scale.Dorian", "contents": "[0,2,3,5,7,9,10] => int scale_Dorian[];"},
+            {"trigger": "Scale.Phrygian", "contents": "[0,1,3,5,7,8,10] => int scale_Phrygian[];"},
+            {"trigger": "Scale.Lydian", "contents": "[0,2,4,6,7,9,11] => int scale_Lydian[];"},
+            {"trigger": "Scale.Mixolydian", "contents": "[0,2,4,5,7,9,10] => int scale_Mixolydian[];"},
+            {"trigger": "Scale.Aeolian", "contents": "[0,2,3,5,7,8,10] => int scale_Aeolian[];"},
+            {"trigger": "Scale.Natural Minor", "contents": "[0,2,3,5,7,8,10] => int scale_Natural_Minor[];"},
+            {"trigger": "Scale.Locrian", "contents": "[0,1,3,5,6,8,10] => int scale_Locrian[];"},
+             
+            {"trigger": "Scale.Harmonic Minor", "contents": "[0,2,3,5,7,8,11] => int scale_Harmonic_Minor[];"},
+            {"trigger": "Scale.Harmonic Major", "contents": "[0,2,4,5,7,8,11] => int scale_Harmonic_Major[];"},
+             
+            {"trigger": "Scale.Melodic Minor", "contents": "[0,2,3,5,7,9,11] => int scale_Melodic_Minor[];"},
+            {"trigger": "Scale.Melodic MinorDesc -> Scale.new(#[0,2,3,5,7,8,10] => int scale_Melodic_Minor_Descending[];"},
+            {"trigger": "Scale.Melodic Major", "contents": "[0,2,4,5,7,8,10] => int scale_Melodic_Major[];"},
+             
+            {"trigger": "Scale.Bartok", "contents": "[0,2,4,5,7,8,10] => int scale_Bartok[];"},
+            {"trigger": "Scale.Hindu", "contents": "[0,2,4,5,7,8,10] => int scale_Hindu[];"},
+             
+            // raga modes
+            {"trigger": "Scale.Todi", "contents": "[0,1,3,6,7,8,11] => int scale_Todi[];"},
+            {"trigger": "Scale.Purvi", "contents": "[0,1,4,6,7,8,11] => int scale_Purvi[];"},
+            {"trigger": "Scale.Marva", "contents": "[0,1,4,6,7,9,11] => int scale_Marva[];"},
+            {"trigger": "Scale.Bhairav", "contents": "[0,1,4,5,7,8,11] => int scale_Bhairav[];"},
+            {"trigger": "Scale.Ahirbhairav", "contents": "[0,1,4,5,7,9,10] => int scale_Ahirbhairav[];"},
+             
+            {"trigger": "Scale.Super Locrian", "contents": "[0,1,3,4,6,8,10] => int scale_Super_Locrian[];"},
+            {"trigger": "Scale.Romanian Minor", "contents": "[0,2,3,6,7,9,10] => int scale_Romanian_Minor[];"},         
+            {"trigger": "Scale.Hungarian Minor", "contents": "[0,2,3,6,7,8,11] => int scale_Hungarian_Minor[];"},
+            {"trigger": "Scale.Neapolitan Minor", "contents": "[0,1,3,5,7,8,11] => int scale_Neapolitan_Minor[];"},
+            {"trigger": "Scale.Enigmatic", "contents": "[0,1,4,6,8,10,11] => int scale_Enigmatic[];"},
+            {"trigger": "Scale.Spanish", "contents": "[0,1,4,5,7,8,10] => int scale_Spanish[];"},
+             
+            // modes of whole tones with added note ->
+            {"trigger": "Scale.Leading Whole Tone", "contents": "[0,2,4,6,8,10,11] => int scale_Leading_Whole_Tone[];"},
+            {"trigger": "Scale.Lydian Minor", "contents": "[0,2,4,6,7,8,10] => int scale_Lydian_Minor[];"},
+            {"trigger": "Scale.Neapolitan Major", "contents": "[0,1,3,5,7,9,11] => int scale_Neapolitan_Major[];"},
+            {"trigger": "Scale.Locrian Major", "contents": "[0,2,4,5,6,8,10] => int scale_Locrian_Major[];"},
+             
+            // 8 note scales
+            {"trigger": "Scale.Diminished", "contents": "[0,1,3,4,6,7,9,10] => int scale_Diminished[];"},
+            {"trigger": "Scale.Diminished 2", "contents": "[0,2,3,5,6,8,9,11] => int scale_Diminished2[];"},
+             
+            // 12, 24 note scales
+            {"trigger": "Scale.chromatic", "contents": "[0,1,2,3,4,5,6,7,8,9,10,11] => int scale_Chromatic[];"},
+            {"trigger": "Scale.chromatic24", "contents": "[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23] => int scale_Chromatic24[];"},
+             
+            // maqam ajam
+            {"trigger": "Scale.Ajam", "contents": "[0,4,8,10,14,18,22] => int scale_Ajam[];"},
+            {"trigger": "Scale.Jiharkah", "contents": "[0,4,8,10,14,18,21] => int scale_Jiharkah[];"},
+            {"trigger": "Scale.Shawq Afza", "contents": "[0,4,8,10,14,16,22] => int scale_Shawq_Afza[];"},
+             
+            // maqam sikah
+            {"trigger": "Scale.Sikah", "contents": "[0,3,7,11,14,17,21] => int scale_Sikah[];"},
+            {"trigger": "Scale.Sikah Descending", "contents": "[0,3,7,11,13,17,21] => int scale_Sikah_Descending[];"},
+            {"trigger": "Scale.Huzam", "contents": "[0,3,7,9,15,17,21] => int scale_Huzam[];"},
+            {"trigger": "Scale.Iraq", "contents": "[0,3,7,10,13,17,21] => int scale_Iraq[];"},
+            {"trigger": "Scale.Bastanikar", "contents": "[0,3,7,10,13,15,21] => int scale_Bastanikar[];"},
+            {"trigger": "Scale.Mustar", "contents": "[0,5,7,11,13,17,21] => int scale_Mustar[];"},
+             
+            // maqam bayati
+            {"trigger": "Scale.Bayati", "contents": "[0,3,6,10,14,16,20] => int scale_Bayati[];"},
+            {"trigger": "Scale.Karjighar", "contents": "[0,3,6,10,12,18,20] => int scale_Karjighar[];"},
+            {"trigger": "Scale.Husseini", "contents": "[0,3,6,10,14,17,21] => int scale_Husseini[];"},
+             
+            // maqam nahawand
+            {"trigger": "Scale.Nahawand", "contents": "[0,4,6,10,14,16,22] => int scale_Nahawand[];"},
+            {"trigger": "Scale.Nahawand Descending", "contents": "[0,4,6,10,14,16,20] => int scale_Nahawand_Descending[];"},
+            {"trigger": "Scale.Farahfaza", "contents": "[0,4,6,10,14,16,20] => int scale_Farahfaza[];"},
+            {"trigger": "Scale.Murassah", "contents": "[0,4,6,10,12,18,20] => int scale_Murassah[];"},
+            {"trigger": "Scale.Ushaq Mashri", "contents": "[0,4,6,10,14,17,21] => int scale_Ushaq_Mashri[];"},
+             
+            // maqam rast
+            {"trigger": "Scale.Rast", "contents": "[0,4,7,10,14,18,21] => int scale_Rast[];"},
+            {"trigger": "Scale.Rast Descending", "contents": "[0,4,7,10,14,18,20] => int scale_Rast_Descending[];"},
+            {"trigger": "Scale.Suznak", "contents": "[0,4,7,10,14,16,22] => int scale_Suznak[];"},
+            {"trigger": "Scale.Nairuz", "contents": "[0,4,7,10,14,17,20] => int scale_Nairuz[];"},
+            {"trigger": "Scale.Yakah", "contents": "[0,4,7,10,14,18,21] => int scale_Yakah[];"},
+            {"trigger": "Scale.Yakah Descending", "contents": "[0,4,7,10,14,18,20] => int scale_Yakah_Descending[];"},
+            {"trigger": "Scale.Mahur", "contents": "[0,4,7,10,14,18,22] => int scale_Mahur[];"},
+             
+            // maqam hijaz
+            {"trigger": "Scale.Hijaz", "contents": "[0,2,8,10,14,17,20] => int scale_Hijaz[];"},
+            {"trigger": "Scale.Hijaz Descending", "contents": "[0,2,8,10,14,16,20] => int scale_Hijaz_Descending[];"},
+            {"trigger": "Scale.Zanjaran", "contents": "[0,2,8,10,14,18,20] => int scale_Zanjaran[];"},
+             
+            // maqam hijazKar
+            {"trigger": "Scale.Zanjaran", "contents": "[0,2,8,10,14,16,22] => int scale_Zanjaran[];"},
+             
+            // maqam saba
+            {"trigger": "Scale.Saba", "contents": "[0,3,6,8,12,16,20] => int scale_Saba[];"},
+            {"trigger": "Scale.Zamzam", "contents": "[0,2,6,8,14,16,20] => int scale_Zamzam[];"},
+             
+            // maqam kurd
+            {"trigger": "Scale.Kurd", "contents": "[0,2,6,10,14,16,20] => int scale_Kurd[];"},
+            {"trigger": "Scale.Kijaz Kar Kurd", "contents": "[0,2,8,10,14,16,22] => int scale_Kijaz_Kar_Kurd[];"},
+             
+            // maqam nawa Athar
+            {"trigger": "Scale.Nawa Athar", "contents": "[0,4,6,12,14,16,22] => int scale_Nawa_Athar[];"},
+            {"trigger": "Scale.Nikriz", "contents": "[0,4,6,12,14,18,20] => int scale_Nikriz[];"},
+            {"trigger": "Scale.Athar Kurd", "contents": "[0,2,6,12,14,16,22] => int scale_Athar_Kurd[];"},
+             
+             
+            // Ascending/descending scales
+            {"trigger": "Scale.Melodic Minor", "contents": "[0,2,3,5,7,9,11] => int scale_Melodic_Minor[];"},
+            {"trigger": "Scale.Sikah", "contents": "[0,3,7,11,14,17,21] => int scale_Sikah[];"},
+            {"trigger": "Scale.Nahawand", "contents": "[0,4,6,10,14,16,22] => int scale_Nahawand[];"}
+        ]
+}
+
+ 
