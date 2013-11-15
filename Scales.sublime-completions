@@ -2,7 +2,10 @@
         "scope": "source.chuck",
 
         "completions":
-        [ 
+        [   
+            // converted from GPL SuperCollider-Source\SCClassLibrary\Common\Collections\Scale.sc
+            // many of these rely on additional semitone correction (not represented here)
+
             // TWELVE TONES PER OCTAVE
             // 5 note scales
             {"trigger": "Scale.Minor Pentatonic", "contents": "[0,3,5,7,10] @=> int scale_Minor_Pentatonic[];"},
@@ -147,7 +150,7 @@
             {"trigger": "Scale.Zanjaran", "contents": "[0,2,8,10,14,18,20] @=> int scale_Zanjaran[];"},
              
             // maqam hijazKar
-            {"trigger": "Scale.Zanjaran", "contents": "[0,2,8,10,14,16,22] @=> int scale_Zanjaran[];"},
+            {"trigger": "Scale.Zanjaran Augmented", "contents": "[0,2,8,10,14,16,22] @=> int scale_Zanjaran_Augmented[];"},
              
             // maqam saba
             {"trigger": "Scale.Saba", "contents": "[0,3,6,8,12,16,20] @=> int scale_Saba[];"},
@@ -169,5 +172,3 @@
             {"trigger": "Scale.Nahawand", "contents": "[0,4,6,10,14,16,22] @=> int scale_Nahawand[];"}
         ]
 }
-
- 
