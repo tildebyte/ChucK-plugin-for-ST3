@@ -42,12 +42,6 @@ doc_destinations = {
     "types": ["/doc/language/type.html"]
 }
 
-doc_stdlib_specials = {
-    
-}
-
-
-
 chuck_princeton = "http://chuck.cs.princeton.edu"
 
 def open_browser(dest, specific=[]):
