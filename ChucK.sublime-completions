@@ -61,6 +61,7 @@
                 "channel",
                 "channels",
                 "pos",
+                "width",
                 "read",
                 "now",
                 "int",
