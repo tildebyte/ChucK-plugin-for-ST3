@@ -42,6 +42,12 @@ doc_destinations = {
     "types": ["/doc/language/type.html"]
 }
 
+doc_stdlib_specials = {
+    
+}
+
+
+
 chuck_princeton = "http://chuck.cs.princeton.edu"
 
 def open_browser(dest, specific=[]):
@@ -50,8 +56,24 @@ def open_browser(dest, specific=[]):
         url += "#" + specific
     webbrowser.open(url)
 
+def std_special_search(ugen):
+    std_search = ugen.split('.')
+    if len(std_search) == 2:
+        library_name, method = std_search
+        if not library_name in ["std", "machine", "math"]:
+            return
+        open_browser(doc_destinations["std"][0], method)
+        return True
+    return
+
 def find_docs(ugen):
     ugen = ugen.lower().strip()
+
+    if "." in ugen:
+        if std_special_search(ugen):
+            return
+        else:
+            print("not recognized as Std / Machine / Math modules")
 
     if ugen in ugens:
         open_browser("/doc/program/ugen_full.html", ugen)
