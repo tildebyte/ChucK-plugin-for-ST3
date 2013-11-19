@@ -168,8 +168,8 @@
              
              
             // Ascending/descending scales
-            {"trigger": "Scale Melodic Minor", "contents": "[0,2,3,5,7,9,11] @=> int scale_Melodic_Minor[];"},
             // {"trigger": "Scale Sikah", "contents": "[0,3,7,11,14,17,21] @=> int scale_Sikah[];"},
-            // {"trigger": "Scale Nahawand", "contents": "[0,4,6,10,14,16,22] @=> int scale_Nahawand[];"}
+            // {"trigger": "Scale Nahawand", "contents": "[0,4,6,10,14,16,22] @=> int scale_Nahawand[];"},
+            {"trigger": "Scale Melodic Minor", "contents": "[0,2,3,5,7,9,11] @=> int scale_Melodic_Minor[];"}
         ]
 }
