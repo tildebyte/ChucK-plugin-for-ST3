@@ -38,7 +38,8 @@ doc_destinations = {
     "vm": ["/doc/program/vm.html"],
     "array": ["/doc/language/array.html"],
     "help": ["/doc/language/"],  #overview
-    "class": ["/doc/language/class.html"]
+    "class": ["/doc/language/class.html"],
+    "types": ["/doc/language/type.html"]
 }
 
 chuck_princeton = "http://chuck.cs.princeton.edu"
