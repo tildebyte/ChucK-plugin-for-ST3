@@ -1053,7 +1053,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:int|float|time|dur|void|same|for|if|else|class|extends|this|super|interface|implements|spork|const|new|now|maybe|me|samp|ms|second|minute|hour|day|week|fun|function)\b</string>
+					<string>\b(?:int|float|string|time|dur|void|same|for|if|else|class|extends|this|super|interface|implements|spork|const|new|now|maybe|me|samp|ms|second|minute|hour|day|week|fun|function)\b</string>
 					<key>name</key>
 					<string>storage.type.primitive.chuck</string>
 				</dict>
