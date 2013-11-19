@@ -32,8 +32,18 @@ ugens = [ugen.lower() for ugen in [
     'Envelope', 'ADSR', 'JCRev', 'NRev', 'PRCRev', 'Chorus', 
     'Modulate', 'PitShift', 'SubNoise', 'WvIn', 'WaveLoop', 'WvOut']]
 
+doc_destinations = {
+    "sndbuf2": ["/doc/program/ugen_full.html", "sndbuf"],
+    "std": ["/doc/program/stdlib.html"],
+    "vm": ["/doc/program/vm.html"],
+    "array": ["/doc/language/array.html"],
+    "help": ["/doc/language/"],  #overview
+    "class": ["/doc/language/class.html"]
+}
+
+chuck_princeton = "http://chuck.cs.princeton.edu"
+
 def open_browser(dest, specific=[]):
-    chuck_princeton = "http://chuck.cs.princeton.edu"
     url = chuck_princeton + dest
     if specific:
         url += "#" + specific
@@ -42,18 +52,20 @@ def open_browser(dest, specific=[]):
 def find_docs(ugen):
     ugen = ugen.lower().strip()
 
-    if ugen == "std":
-        open_browser("/doc/program/stdlib.html")
-        return
-
     if ugen in ugens:
         open_browser("/doc/program/ugen_full.html", ugen)
+ 
     # the online docs are not complete! 
-    elif ugen in ["SndBuf2"]:
-        print("{0} is valid.. search for SndBuf instead".format(ugen))
+    elif ugen in doc_destinations.keys():
+        doc_url = doc_destinations[ugen]
+        
+        if len(doc_url) == 2:
+            open_browser(*doc_url)
+        else:
+            webbrowser.open(chuck_princeton + doc_url[0])
+
     else:
         print('not a ugen, not known, or incorrect spelling')
-
 
 
 class ChuckDocSearch(sublime_plugin.TextCommand):
