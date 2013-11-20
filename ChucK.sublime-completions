@@ -82,8 +82,8 @@
                 { "trigger": ".rfind str, pos", "contents": "rfind(string ${1:str}, int ${2:pos});" },
                 // for casting
                 // bizarre. the '$' from the trigger isn't erased ::shrug::
-                { "trigger": "\\$ float", "contents": "float => float ${1:name};" },
-                { "trigger": "\\$ int", "contents": "int => int ${1:name};" },
+                { "trigger": "to float", "contents": "\\$ float => float ${1:name};" },
+                { "trigger": "to int", "contents": "\\$ int => int ${1:name};" },
                 // keywords
                 "break",
                 "continue",
