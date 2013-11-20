@@ -36,7 +36,7 @@ http://chuck.cs.princeton.edu
 Probably many
 - If you build a shred while another shred is playing, you can not stop the first shred  
     - a work around for losing context of ChucK like that is to open Sublime's Python console   
-    and enter `subprocess.call(["chuck", "--kill"])`. This kills it with fire.
+    and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it with fire.
 
 
 ## Authors
