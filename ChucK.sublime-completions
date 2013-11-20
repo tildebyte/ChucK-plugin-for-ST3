@@ -61,7 +61,9 @@
                 { "trigger": ".keyOn", "contents": ".keyOn" },
                 { "trigger": ".keyOff", "contents": ".keyOff" },
                 { "trigger": ".read", "contents": ".read" },
-                { "trigger": ".duration", "contents": ".duration" },
+                { "trigger": ".duration", "contents": "duration" },
+                { "trigger": ".set (ADSR generic)", "contents": "set( 2::ms, 171::ms, 0.20, 35::ms );  //a, d, s, r"},
+                { "trigger": ".set (ADSR ms)", "contents": "set( ${1:int}::ms, ${2:int}::ms, ${3:float}, ${4:int}::ms );"},
                 // string methods
                 { "trigger": ".length", "contents": ".length()" },
                 { "trigger": ".charAt index", "contents": "charAt(int ${1:index});" },
@@ -81,7 +83,6 @@
                 { "trigger": ".rfind str", "contents": "rfind(string ${1:str});" },
                 { "trigger": ".rfind str, pos", "contents": "rfind(string ${1:str}, int ${2:pos});" },
                 // for casting
-                // bizarre. the '$' from the trigger isn't erased ::shrug::
                 { "trigger": "to float", "contents": "\\$ float => float ${1:name};" },
                 { "trigger": "to int", "contents": "\\$ int => int ${1:name};" },
                 // keywords
