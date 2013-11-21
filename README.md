@@ -17,11 +17,6 @@ http://chuck.cs.princeton.edu
 - Restart Sublime Text 3.
 
 ## Features
-- "Doc Search": searches the ChucK online help for a currently selected word (zeffii). it takes:
-  - Any Ugen name
-  - the following terms (search terms are not case sensitive):
-    - arrays, std, math, machine, help, class, types, and vm  
-    - dot methods for Std and Math will also work, try doc search: Std.max
 - Run the current ChucK program in ChucK, with the output going
     to an ST terminal window. This runs from the Tools menu
     using the Build command (initial Build command by Sharov Anton).
@@ -29,8 +24,13 @@ http://chuck.cs.princeton.edu
 - Syntax definition/coloring (Nathan Leiby).
 - Completions (quaestor, zeffii).
 - Snippets (quaestor).
-- iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full for-loop:
-  - `i..n` (where n is a number)
+- "Doc Search": searches the ChucK online help for a currently selected word (zeffii). it takes:
+  - Any `Ugen` _name_
+  - the following terms (_search terms_ are not case sensitive):
+    - `arrays`, `std`, `math`, `machine`, `help`, `class`, `types`, and `vm`  
+    - dot methods for `Std` and `Math` will also work, try doc search: `Std.max` or `Math.randomf`.
+- iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
+  - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
   - `i..some_array`
   - see the iternotate.py file for more info, if you don't like writing out for-loops do this sooner than later.
 - In Tools, there will be a new ChucK sub menu which allows you to:
@@ -38,7 +38,7 @@ http://chuck.cs.princeton.edu
   - TODO: Stop all sounds.
 
 ## Notes
-- The default keybinds for UGen lookup and iternotate conflict with fold/unfold.
+- The default keybinds for _Doc Search_ and _iternotate_ conflict with fold/unfold.
 
 ## Known bugs
 Probably many
