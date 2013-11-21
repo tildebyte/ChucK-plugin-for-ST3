@@ -17,14 +17,22 @@ http://chuck.cs.princeton.edu
 - Restart Sublime Text 3.
 
 ## Features
-- Search UGen help in ChucK docs (online) (zeffii).
+- "Doc Search": searches the ChucK online help for a currently selected word (zeffii). it takes:
+  - Any Ugen name
+  - the following terms (search terms are not case sensitive):
+    - arrays, std, math, machine, help, class, types, and vm  
+    - dot methods for Std and Math will also work, try doc search: Std.max
 - Run the current ChucK program in ChucK, with the output going
     to an ST terminal window. This runs from the Tools menu
     using the Build command (initial Build command by Sharov Anton).
   - Goto error (bound to F4).
 - Syntax definition/coloring (Nathan Leiby).
-- Completions (quaestor).
+- Completions (quaestor, zeffii).
 - Snippets (quaestor).
+- iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full for-loop:
+  - `i..n` (where n is a number)
+  - `i..some_array`
+  - see the iternotate.py file for more info, if you don't like writing out for-loops do this sooner than later.
 - In Tools, there will be a new ChucK sub menu which allows you to:
   - TODO: Start and stop ChucK.
   - TODO: Stop all sounds.
