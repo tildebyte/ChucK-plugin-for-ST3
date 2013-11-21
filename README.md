@@ -28,7 +28,7 @@ http://chuck.cs.princeton.edu
   - Any `Ugen` _name_
   - the following terms (_search terms_ are not case sensitive):
     - `arrays`, `std`, `math`, `machine`, `help`, `class`, `types`, and `vm`  
-    - dot methods for `Std` and `Math` will also work, try doc search: `Std.max` or `Math.randomf`.
+    - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
 - iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
   - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
   - `i..some_array`
