@@ -17,23 +17,35 @@ http://chuck.cs.princeton.edu
 - Restart Sublime Text 3.
 
 ## Features
-- Search UGen help in ChucK docs (online) (zeffii).
 - Run the current ChucK program in ChucK, with the output going
     to an ST terminal window. This runs from the Tools menu
     using the Build command (initial Build command by Sharov Anton).
   - Goto error (bound to F4).
 - Syntax definition/coloring (Nathan Leiby).
-- Completions (quaestor).
+- Completions (quaestor, zeffii).
 - Snippets (quaestor).
+- "Doc Search": searches the ChucK online help for a currently selected word (zeffii). it takes:
+  - Any `Ugen` _name_
+  - the following terms (_search terms_ are not case sensitive):
+    - `arrays`, `std`, `math`, `machine`, `help`, `class`, `types`, and `vm`  
+    - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
+- iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
+  - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
+  - `i..some_array`
+  - see the iternotate.py file for more info, if you don't like writing out for-loops do this sooner than later.
 - In Tools, there will be a new ChucK sub menu which allows you to:
   - TODO: Start and stop ChucK.
   - TODO: Stop all sounds.
 
 ## Notes
-- The default keybinds for UGen lookup and iternotate conflict with fold/unfold.
+- The default keybinds for _Doc Search_ and _iternotate_ conflict with fold/unfold.
 
 ## Known bugs
 Probably many
+- If you build a shred while another shred is playing, you can not stop the first shred  
+    - a work around for losing context of ChucK like that is to open Sublime's Python console   
+    and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it with fire.
+
 
 ## Authors
 [quaestor](http://github.com/tildebyte)
