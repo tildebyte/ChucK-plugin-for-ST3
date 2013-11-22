@@ -22,10 +22,9 @@ http://chuck.cs.princeton.edu
 simple build script. The script is found in the build menu, and if you have your build settings configured 
 to automatic then all you have to do is  
         - start a new file, save it with a `.ck` extension 
-        - write out your chuck code, notice the beautiful syntax highlighting and hints.
+        - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
         - hit the shortcut for build (cmd+B, or ctrl+B by default). 
-            - A note about build settings: If you don't have build settings set to automatic then you must 
-            pick ChucK from the build-scripts manually. 
+    - If you don't have build settings set to automatic then you must pick ChucK from the build-scripts manually. 
 
 ## Features
 - Run the current ChucK program in ChucK, with the output going
