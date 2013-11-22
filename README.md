@@ -20,9 +20,12 @@ http://chuck.cs.princeton.edu
 - Usage
     - Currently to get sounds out of SublimeText3 and the ChucK addon we've set up a 
 simple build script. The script is found in the build menu, and if you have your build settings configured 
-to automatic then all you have to do is write out your chuck code, save it with a `.ck` extention and hit 
-the shortcut for build (cmd+B, or ctrl+B by default). If you don't have build settings set to automatic then you must 
-pick ChucK from the build-scripts manually. 
+to automatic then all you have to do is  
+        - start a new file, save it with a `.ck` extension 
+        - write out your chuck code, notice the beautiful syntax highlighting and hints.
+        - hit the shortcut for build (cmd+B, or ctrl+B by default). 
+            - A note about build settings: If you don't have build settings set to automatic then you must 
+            pick ChucK from the build-scripts manually. 
 
 ## Features
 - Run the current ChucK program in ChucK, with the output going
