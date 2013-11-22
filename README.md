@@ -11,7 +11,7 @@ http://chuck.cs.princeton.edu
 
 ## Usage
 
-- Installatoin
+- Installation
     - Open Sublime Text 3.
     - Go to Preferences/Browse Packages.
     - Unpack the archive into the Packagers folder which should appear.
