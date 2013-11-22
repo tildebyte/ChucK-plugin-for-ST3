@@ -1,0 +1,9 @@
+<snippet>
+    <description>For...</description>
+    <content><![CDATA[for( ${1:init}; ${2:eval}; ${3:inc/dec} ){
+	${0:body;}
+}
+]]></content>
+    <tabTrigger>for</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
