@@ -10,11 +10,19 @@ ChucK home page
 http://chuck.cs.princeton.edu
 
 ## Usage
-- Open Sublime Text 3.
-- Go to Preferences/Browse Packages.
-- Unpack the archive into the Packagers folder which should appear.
-- Change ChucK path in ChucK.sublime-settings.
-- Restart Sublime Text 3.
+
+- Installatoin
+    - Open Sublime Text 3.
+    - Go to Preferences/Browse Packages.
+    - Unpack the archive into the Packagers folder which should appear.
+    - Change ChucK path in ChucK.sublime-settings.
+    - Restart Sublime Text 3.
+- Usage
+    - Currently to get sounds out of SublimeText3 and the ChucK addon we've set up a 
+simple build script. The script is found in the build menu, and if you have your build settings configured 
+to automatic then all you have to do is write out your chuck code, save it with a `.ck` extention and hit 
+the shortcut for build (cmd+B, or ctrl+B by default). If you don't have build settings set to automatic then you must 
+pick ChucK from the build-scripts manually. 
 
 ## Features
 - Run the current ChucK program in ChucK, with the output going
