@@ -37,7 +37,7 @@ to automatic then all you have to do is
 - "Doc Search": searches the ChucK online help for a currently selected word (zeffii). it takes:
   - Any `Ugen` _name_
   - the following terms (_search terms_ are not case sensitive):
-    - `arrays`, `std`, `math`, `machine`, `help`, `class`, `types`, and `vm`  
+    - `arrays, std, math, machine, help, class, types, and vm`  
     - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
 - iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
   - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
