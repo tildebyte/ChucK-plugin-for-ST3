@@ -34,7 +34,7 @@ to automatic then all you have to do is
 - Syntax definition/coloring (Nathan Leiby).
 - Completions (quaestor, zeffii).
 - Snippets (quaestor).
-- "Doc Search": searches the ChucK online help for a currently selected word (zeffii). it takes:
+- "Doc Search": searches the ChucK online help for a currently selected word. it takes:
   - Any `Ugen` _name_
   - the following terms (_search terms_ are not case sensitive):
     - `arrays, std, math, machine, help, class, types, and vm`  
