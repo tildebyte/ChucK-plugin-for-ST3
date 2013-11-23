@@ -3,8 +3,8 @@ author: Dealga McArdle, 2013.
  
 http://www.sublimetext.com/docs/3/api_reference.html
 
-Select the shorthand i..4 or i..iterable like below, select the full line 
-(including whitespace if there). Then press ctrl+shift+[ 
+Write the shorthand i..4 or i..iterable like below 
+then press ctrl+shift+[ (or whatever combo you've set)
 
 The plugin will output
  
