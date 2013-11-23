@@ -26,6 +26,7 @@ to automatic then all you have to do is
     - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
     - hit the shortcut for build (cmd+B, or ctrl+B by default). 
     - to stop chuck, end the build command ( See the shortcut listed in Tools -> Cancel Build )  
+    
 - If you don't have build settings set to automatic then you must pick ChucK from the build-scripts manually, before running build on your code. 
 
 ## Features
