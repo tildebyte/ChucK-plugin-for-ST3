@@ -9,46 +9,48 @@ http://www.sublimetext.com/3
 ChucK home page
 http://chuck.cs.princeton.edu
 
-## Usage
+## Installation  
 
-- Installation
-    - Open Sublime Text 3.
-    - Go to Preferences/Browse Packages.
-    - Unpack the archive into the Packagers folder which should appear.
-    - Change ChucK path in ChucK.sublime-settings.
-    - Restart Sublime Text 3.
-- Usage
-    - Currently to get sounds out of SublimeText3 and the ChucK addon we've set up a 
-simple build script. The script is found in the build menu, and if you have your build settings configured 
+ - Open Sublime Text 3.
+ - Go to Preferences/Browse Packages.
+ - Unpack the archive into the Packagers folder which should appear.
+ - Change ChucK path in ChucK.sublime-settings.
+ - Restart Sublime Text 3.
+
+## Usage  
+
+ - Currently to get sounds out of SublimeText3 + ChucK we've set up a 
+simple build script, located in the build menu. If you have your build settings configured 
 to automatic then all you have to do is  
-        - start a new file, save it with a `.ck` extension 
-        - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
-        - hit the shortcut for build (cmd+B, or ctrl+B by default). 
-    - If you don't have build settings set to automatic then you must pick ChucK from the build-scripts manually. 
+    - start a new file, save it with a `.ck` extension 
+    - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
+    - hit the shortcut for build (cmd+B, or ctrl+B by default). 
+    - to stop chuck, end the build command ( insert short here )
+- If you don't have build settings set to automatic then you must pick ChucK from the build-scripts manually, before running build on your code. 
 
 ## Features
-- Run the current ChucK program in ChucK, with the output going
-    to an ST terminal window. This runs from the Tools menu
-    using the Build command (initial Build command by Sharov Anton).
+- ChucK Build command (initial Build command by Sharov Anton).
   - Goto error (bound to F4).
 - Syntax definition/coloring (Nathan Leiby).
 - Completions (quaestor, zeffii).
 - Snippets (quaestor).
-- "Doc Search": searches the ChucK online help for a currently selected word. it takes:
+- `chuck_doc_search.py` ("Doc Search"): searches the ChucK online help for a currently selected word. it takes:
   - Any `Ugen` _name_
-  - the following terms (_search terms_ are not case sensitive):
+  - Any of the following terms (not case sensitive):
     - `arrays, std, math, machine, help, class, types, and vm`  
     - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
-- iternotate.py, when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
+- `iternotate.py` ("never write a for-loop again"), when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
   - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
   - `i..some_array`
-  - see the iternotate.py file for more info, if you don't like writing out for-loops do this sooner than later.
+  - see the `iternotate.py` file for more info, if you don't like writing out for-loops do this sooner than later.
 - In Tools, there will be a new ChucK sub menu which allows you to:
   - TODO: Start and stop ChucK.
   - TODO: Stop all sounds.
+  - TODO: Write to disk.
+  - TODO: add / replace / remove shreds.
 
 ## Notes
-- The default keybinds for _Doc Search_ and _iternotate_ conflict with fold/unfold.
+- The default keybinds for `chuck_doc_search` and `iternotate` conflict with fold/unfold.
 
 ## Known bugs
 Probably many
