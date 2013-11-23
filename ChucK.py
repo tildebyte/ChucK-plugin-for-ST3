@@ -172,18 +172,6 @@ class Ck_wav_write(sublime_plugin.TextCommand):
         # the only requirement is (for now) that a copy of wav_writer.ck be located
         # in the same folder as the .ck you're trying to record. 
 
-        """ // wav_writer.ck
-
-            Std.atoi(me.arg(0)) => int num_seconds;
-            me.arg(1) => string wav_name;
-
-            dac => Gain g => WvOut2 w => blackhole;
-            wav_name + ".wav" => w.wavFilename;
-            1 => w.record;
-            num_seconds::second => now;
-            0 => w.record;
-        """
-
         view = self.view
         file_path = view.file_name()
         file_name = os.path.basename(file_path)
