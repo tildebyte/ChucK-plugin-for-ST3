@@ -169,29 +169,73 @@ class Ck_clear_vmCommand(sublime_plugin.WindowCommand):
 
 class Ck_wav_write(sublime_plugin.TextCommand):
     def run(self, edit):
-        
         # the only requirement is (for now) that a copy of wav_writer.ck be located
         # in the same folder as the .ck you're trying to record. 
 
         """ // wav_writer.ck
 
-        Std.atoi(me.arg(0)) => int num_seconds;
-        me.arg(1) => string wav_name;
+            Std.atoi(me.arg(0)) => int num_seconds;
+            me.arg(1) => string wav_name;
 
-        dac => Gain g => WvOut2 w => blackhole;
-        wav_name + ".wav" => w.wavFilename;
-        1 => w.record;
-        num_seconds::second => now;
-        0 => w.record;
-
+            dac => Gain g => WvOut2 w => blackhole;
+            wav_name + ".wav" => w.wavFilename;
+            1 => w.record;
+            num_seconds::second => now;
+            0 => w.record;
         """
 
         view = self.view
         file_path = view.file_name()
         file_name = os.path.basename(file_path)
-        print("filename: ", file_name)
 
-        test_name = file_name + "_test"
-        chuck_init = ["chuck", file_name, "wav_writer.ck:30:"+ test_name, "-s"]    
-        Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_init)
+        """
+        we can use the text editor view as a faux console
+
+        the following lines should be equivalent. The first example would be normal 
+        chuck shell usage, the second is what you type on a line in a chuck file to 
+        record 20 seconds to a stereo wave called "new_wavename"
+
+        -   > chuck somefile.ck wav_writer.ck:20:new_wavename
+        -   // %> 20:new_wavename      (hit ctrl+shift+w, or your chosen keycombo)
+
+        """
+
+        selections = view.sel()
+        if selections[0].a == selections[0].b:
+            try:
+                sel = view.line(selections[0])
+                selection = view.substr(sel)
+
+                # get the last portion after the comment, split and strip
+                found_content = selection.rsplit("//", 1)[1]
+                sides = found_content.split("%>")
+                right_side = sides[1].strip()
+                song_duration, wav_name = [s.strip() for s in right_side.split(":")]
+
+                # compile commands for subprocess.
+                cc = ["wav_writer.ck", str(song_duration), wav_name]
+                record_commands = ":".join(cc)
+                chuck_init_wav = ["chuck", file_name, record_commands, "-s"]
+                print("\nsending:")
+                print("> " +  " ".join(chuck_init_wav) + "\n")
+
+                p = subprocess.Popen(chuck_init_wav, 
+                        stdout=subprocess.PIPE, 
+                        stderr=subprocess.STDOUT, 
+                        shell=True).communicate()
+
+                if not p:
+                    for line in p:
+                        print(line.decode())
+
+            except:
         
+                print("""\
+the form to write in is:  // %> 20:new_wavename.
+//  is to keep it a comment, ignored by ChucK.
+%>  is to indicate you intend to use the comment to send commands.
+20  indicates how many seconds to record.
+:   is a delimiter for the next command.
+new_wavename   can be anything you want, just don't use punctuation.""")            
+
+
