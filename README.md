@@ -20,13 +20,13 @@ http://chuck.cs.princeton.edu
 ## Usage  
 
  - Currently to get sounds out of SublimeText3 + ChucK we've set up a 
-simple build script. If you have your build settings configured to automatic then all you have to do is  
-    - start a new file, save it with a `.ck` extension 
+simple build script. If you are new to SublimeText, the menu to look for is located in Tools -> Build System. 
+If `automatic` is not ticked then tick it, or if you don't want to then set the build system to ChucK yourself. To hear some sounds do:
+    - load a `.ck` file or start a new file and save it with a `.ck` extension first (to let sublime know what kind of file it is)
     - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
     - hit the shortcut for build (cmd+B, or ctrl+B by default). 
     - to stop chuck, end the build command ( See the shortcut listed in Tools -> Cancel Build )  
-    
-- If you don't have build settings set to automatic then you must pick ChucK from the build-scripts manually, before running build on your code. 
+
 
 ## Features
 - ChucK Build command (initial Build command by Sharov Anton).
