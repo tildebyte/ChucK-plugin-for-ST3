@@ -98,7 +98,7 @@ class Iternotate(sublime_plugin.TextCommand):
 
         view.replace(edit, full_line_region, final)
 
-    
+
     def enabled(self):
 
         sels   = self.view.sel()    # lists regions, 
@@ -110,5 +110,6 @@ class Iternotate(sublime_plugin.TextCommand):
 
         # get the content
         selection = self.view.substr(sel)
-        if check_is_loopform(selection):
+        if fsel.empty():
             return True
+
