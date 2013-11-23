@@ -167,17 +167,31 @@ class Ck_clear_vmCommand(sublime_plugin.WindowCommand):
             Ck_loop_vmCommand.chuck_process.stdin.flush()
 
 
-# I think we can handle this better seperately
+class Ck_wav_write(sublime_plugin.TextCommand):
+    def run(self, edit):
+        
+        # the only requirement is (for now) that a copy of wav_writer.ck be located
+        # in the same folder as the .ck you're trying to record. 
 
-# class Ck_ugen_helpCommand(sublime_plugin.WindowCommand):
-#     ckcode_ugen_url = None
+        """ // wav_writer.ck
 
-#     def run(self):
-#         if Ck_ugen_helpCommand.ckcode_ugen_url is None:
-#             settings = sublime.load_settings("ChucK.sublime-settings")
-#             Ck_ugen_helpCommand.ckcode_ugen_url = settings.get("ckcode_ugen_url")
-#         view = self.window.active_view()
-#         sel = view.sel()
-#         point = sel[0]
-#         word = view.word(point)
-#         webbrowser.open_new_tab(Ck_ugen_helpCommand.ckcode_ugen_url+view.substr(word))
+        Std.atoi(me.arg(0)) => int num_seconds;
+        me.arg(1) => string wav_name;
+
+        dac => Gain g => WvOut2 w => blackhole;
+        wav_name + ".wav" => w.wavFilename;
+        1 => w.record;
+        num_seconds::second => now;
+        0 => w.record;
+
+        """
+
+        view = self.view
+        file_path = view.file_name()
+        file_name = os.path.basename(file_path)
+        print("filename: ", file_name)
+
+        test_name = file_name + "_test"
+        chuck_init = ["chuck", file_name, "wav_writer.ck:30:"+ test_name, "-s"]    
+        Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_init)
+        
