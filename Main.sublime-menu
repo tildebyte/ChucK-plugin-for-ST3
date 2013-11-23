@@ -13,8 +13,7 @@
             { "command": "ck_replace_shred", "caption": "Replace shred =", "mnemonic": "e" },
             { "command": "ck_kill_vm", "caption": "Stop VM --kill", "mnemonic": "p" },
             { "command": "ck_loop_vm", "caption": "Start VM --loop", "mnemonic": "s" },
-            { "command": "ck_clear_vm", "caption": "Clear VM remove.all", "mnemonic": "c" },
-            { "command": "ck_wav_write", "caption": "Write to Disk", "mnemonic": "w" }
+            { "command": "ck_clear_vm", "caption": "Clear VM remove.all", "mnemonic": "c" }
         ]
     }
   ]
