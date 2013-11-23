@@ -1,13 +1,6 @@
 '''
 author: Dealga McArdle, 2013.
 
-http://www.sublimetext.com/docs/2/api_reference.html
-
-Installation
-- place iternotate.py in Data/Packages/User
-- place dictionary entry in Keybindings, User
-{ "keys": ["ctrl+shift+["], "command": "iternotate" }
-
 Usage
 
 Select the shorthand i..4 or i..iterable like below, select the full line
