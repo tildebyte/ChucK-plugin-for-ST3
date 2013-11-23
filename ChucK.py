@@ -169,36 +169,53 @@ class Ck_clear_vmCommand(sublime_plugin.WindowCommand):
 
 class Ck_wav_write(sublime_plugin.TextCommand):
     def run(self, edit):
-        # the only requirement is (for now) that a copy of wav_writer.ck be located
-        # in the same folder as the .ck you're trying to record. 
+        """
+        a copy of wav_writer.ck must be located in the same folder 
+        as the .ck you're trying to record. 
+
+        usage: 
+        (command line):         chuck somefile.ck wav_writer.ck:20:new_wavename
+        (wav_writer syntax):    // %> 20:new_wavename
+
+        we can drop the first filename because it refers to the current file at the 
+        time.
+        """
 
         view = self.view
         file_path = view.file_name()
         file_name = os.path.basename(file_path)
 
-        """
-        we can use the text editor view as a faux console
-
-        the following lines should be equivalent. The first example would be normal 
-        chuck shell usage, the second is what you type on a line in a chuck file to 
-        record 20 seconds to a stereo wave called "new_wavename"
-
-        -   > chuck somefile.ck wav_writer.ck:20:new_wavename
-        -   // %> 20:new_wavename      (hit ctrl+shift+w, or your chosen keycombo)
-
-        """
 
         selections = view.sel()
         if selections[0].a == selections[0].b:
+
+            sel = view.line(selections[0])
+            selection = view.substr(sel)
+            
+            song_duration = None
+            wav_name = None
             try:
-                sel = view.line(selections[0])
-                selection = view.substr(sel)
 
                 # get the last portion after the comment, split and strip
                 found_content = selection.rsplit("//", 1)[1]
                 sides = found_content.split("%>")
                 right_side = sides[1].strip()
                 song_duration, wav_name = [s.strip() for s in right_side.split(":")]
+
+            except:
+                print("""\
+the form to write in is:  // %> 20:new_wavename.
+//  is to keep it a comment, ignored by ChucK.
+%>  is to indicate you intend to use the comment to send commands.
+20  indicates how many seconds to record.
+:   is a delimiter for the next command.
+new_wavename   can be anything you want, just don't use punctuation.""") 
+                return
+
+            finally:
+
+                if not all([song_duration, wav_name]):
+                    return
 
                 # compile commands for subprocess.
                 cc = ["wav_writer.ck", str(song_duration), wav_name]
@@ -212,18 +229,7 @@ class Ck_wav_write(sublime_plugin.TextCommand):
                         stderr=subprocess.STDOUT, 
                         shell=True).communicate()
 
-                if not p:
+                if not p:  # if not None
                     for line in p:
                         print(line.decode())
-
-            except:
-        
-                print("""\
-the form to write in is:  // %> 20:new_wavename.
-//  is to keep it a comment, ignored by ChucK.
-%>  is to indicate you intend to use the comment to send commands.
-20  indicates how many seconds to record.
-:   is a delimiter for the next command.
-new_wavename   can be anything you want, just don't use punctuation.""")            
-
 
