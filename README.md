@@ -42,7 +42,7 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 - `iternotate.py` ("never write a for-loop again"), when invoked, will rewrite a shorthand iteration notation into a full `for-loop`:
   - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
   - `i..some_array`
-  - see the `iternotate.py` file for more info, if you don't like writing out for-loops do this sooner than later.
+  - see the [`iternotate.py`](https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/iternotate.py) file for more info, if you don't like writing out for-loops do this sooner than later.
 - In Tools, there will be a new ChucK sub menu which allows you to:
   - TODO: Start and stop ChucK.
   - TODO: Stop all sounds.
