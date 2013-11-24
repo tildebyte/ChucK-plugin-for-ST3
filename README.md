@@ -85,8 +85,8 @@ SinOsc d => dac;
 
 If the cursor caret is on the line with the comment using that `%>` token it will try to parse what 
 is after it. `20` means you want that many seconds, `demo_sound` is the name of the output stereo wav 
-you will record. This feature uses a threaded sub process, it allows you to use sublime whle python 
-waits for chuck to write the wav to disk.
+you will record. This feature uses a threaded sub process, it allows you to use sublime while chuck writes
+the wav to disk.
 
 #### Tools > ChucK sub menu (todo) :
   - TODO: Stop all sounds.
