@@ -66,10 +66,21 @@ class Ck_wav_write(sublime_plugin.TextCommand):
                 print("\nsending:")
                 print("> " +  " ".join(chuck_init_wav) + "\n")
 
-                p = subprocess.Popen(chuck_init_wav, 
+                th = Ck_DiskWriter_Thread(chuck_init_wav)
+                th.start()
+
+        
+class Ck_DiskWriter_Thread(threading.Thread):
+    def __init__(self, chuck_init_wav):
+        self. chuck_init_wav = chuck_init_wav
+        threading.Thread.__init__(self)
+
+    def run(self):
+        p = subprocess.Popen(self.chuck_init_wav, 
                         stdout=subprocess.PIPE, 
                         stderr=subprocess.STDOUT, 
                         shell=True).communicate()
 
-                if p:
-                    print(p[0].decode())
+        # don't need to show these...
+        #if p:
+        #    print(p[0].decode())
