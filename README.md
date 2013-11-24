@@ -52,7 +52,7 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
    - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
 
 ### Iternotate  
-`iternotate.py`: dispite the awkward name this saves you from writing out full for-loops, simply write the shorthand and
+`iternotate.py`: despite the awkward name this saves you from writing out full for-loops, simply write the shorthand and
 press the keyboard shortcut to tell the script to expand your shorthand into the full chuck for-loop  
 
 `i..n` (where , `i` is your chosen iteration variable _name_, and `n` is a number)
