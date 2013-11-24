@@ -29,24 +29,64 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 
 
 ## Features
+
+### Build command  
 - ChucK Build command (initial Build command by Sharov Anton).
   - Goto error (bound to F4).
+
+### Syntax Highlighting  
 - Syntax definition/coloring (Nathan Leiby).
+
+### Completions  
 - Completions (quaestor, zeffii).
-- Snippets (quaestor).
-- `chuck_doc_search.py` ("Doc Search"): searches the ChucK online help for a currently selected word. it takes:
-  - Any `Ugen` _name_
-  - Any of the following terms (not case sensitive):
-    - `arrays, std, math, machine, help, class, types, and vm`  
-    - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
-- `iternotate.py` ("never write a for-loop again"), will rewrite a shorthand iteration notation into a full `for-loop`:
-  - `i..n` (where `n` is a number, and `i` your chosen iteration variable _name_)
-  - `i..some_array`
-  - see the [`iternotate.py`](https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/iternotate.py) file for more info, if you don't like writing out for-loops do this sooner than later.
-- In Tools, there will be a new ChucK sub menu which allows you to:
-  - TODO: Start and stop ChucK.
+
+### Snippets.  
+(short) commonly used syntactical structures are available with only a few keystrokes.
+(examples)
+ 
+### Doc Search
+`chuck_doc_search.py`: searches the ChucK online help for a currently selected word. it takes:
+ - Any `Ugen` _name_
+ - Any of the following terms (not case sensitive):
+   - `arrays, std, math, machine, help, class, types, and vm`  
+   - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
+
+### Iternotate  
+`iternotate.py`: dispite the awkward name this saves you from writing out full for-loops, simply write the shorthand and
+press the keyboard shortcut to tell the script to expand your shorthand into the full chuck for-loop  
+
+`i..n` (where , `i` is your chosen iteration variable _name_, and `n` is a number)
+`i..some_array`  
+
+```chuck
+// i..5
+for(0 => int i; i<5; i++){
+    i;
+}
+
+// i..iterable
+for(0 => int i; i<iterable.cap(); i++){
+    iterable[i];
+}
+```
+
+### Wav Writer  
+Writes the current chuck file as stereo wav to disk. We use the concept of an inline console to tell `wav_writer.py` 
+what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
+
+```chuck
+SinOsc d => dac;  
+20::second => now;   // %> 20:demo_sound
+```
+
+If the cursor caret is on the line with the comment using that `%>` token it will try to parse what 
+is after it. `20` means you want that many seconds, `demo_sound` is the name of the output stereo wav 
+you will record. This feature uses a threaded sub process, it allows you to use sublime whle python 
+waits for chuck to write the wav to disk.
+
+### Tools > ChucK sub menu (todo) :
   - TODO: Stop all sounds.
-  - TODO: Write to disk.
+  - TODO: Start and stop ChucK.
   - TODO: add / replace / remove shreds.
 
 ## Notes
@@ -60,13 +100,10 @@ Probably many
 
 
 ## Authors
-[quaestor](http://github.com/tildebyte)
-
-[zeffii](http://www.coursera.org/user/i/daff1a17ed112d8df2602bc10fa57a3b)
-
-[Sharov Anton](http://www.coursera.org/user/i/6591636f6ce50babb61bb547c721fac4)
-
-[Nathan Leiby](http://github.com/nathanleiby)
+[quaestor](http://github.com/tildebyte)  
+[zeffii](http://www.coursera.org/user/i/daff1a17ed112d8df2602bc10fa57a3b)  
+[Sharov Anton](http://www.coursera.org/user/i/6591636f6ce50babb61bb547c721fac4)  
+[Nathan Leiby](http://github.com/nathanleiby)  
 
 ## Thanks
 
