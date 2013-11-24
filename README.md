@@ -40,7 +40,9 @@ inside the miniAudicle, if chuck crashes most likely so will the miniAudicle.
  on which the error occured, then hitting f4 will navigate the sublime editor to that line.
 
 #### Syntax Highlighting  
-Syntax definition/coloring (Nathan Leiby, based on textmate support by [tasmo](http://tasmo.github.com/ChucK.tmbundle)).
+Syntax definition / coloring of all major language constructs (types, syntax etc). If code looks alright
+this is a good first indication that your code syntax is correct. There are a few subtle bugs listed at 
+the end in the bugs section, but they do not impede beyond aesthetics.
 
 #### Completions  
 We've assembled most of the names of objects and methods that appear in the ChucK language. 
@@ -116,10 +118,12 @@ the list:
 - The default keybinds for `chuck_doc_search` and `iternotate` conflict with fold/unfold.
 
 ## Known bugs
-Probably many
+Probably many, but we are aware of these:
 - If you build a shred while another shred is playing, you can not stop the first shred  
     - a work around for losing context of ChucK like that is to open Sublime's Python console   
     and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it with fire.
+
+- using `.cap()` will render the rest of the line in white. 
 
 
 ## Authors
@@ -132,7 +136,8 @@ Probably many
 
 - Geoffroy Montel (http://schemawound.com) for the ST2 Supercollider plugin.
 - Sharov Anton (initial Build command)
-- Nathan Leiby (syntax highlighter conversion from textmate) 
+- Nathan Leiby (syntax highlighter conversion of textmate files by [tasmo](http://tasmo.github.com/ChucK.tmbundle)).
+
 
 #### Testing:
 
