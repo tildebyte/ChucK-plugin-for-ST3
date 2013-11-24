@@ -30,7 +30,8 @@ ugens = [ugen.lower() for ugen in [
     'BeeThree', 'FMVoices', 'HevyMetl', 'PercFlut', 'Rhodey', 
     'TubeBell', 'Wurley', 'Delay', 'DelayA', 'DelayL', 'Echo', 
     'Envelope', 'ADSR', 'JCRev', 'NRev', 'PRCRev', 'Chorus', 
-    'Modulate', 'PitShift', 'SubNoise', 'WvIn', 'WaveLoop', 'WvOut']]
+    'Modulate', 'PitShift', 'SubNoise', 'WvIn', 'WaveLoop', 'WvOut',
+    'CurveTable']]
 
 doc_destinations = {
     "sndbuf2": ["/doc/program/ugen_full.html", "sndbuf"],
