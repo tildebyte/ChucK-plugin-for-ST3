@@ -31,7 +31,10 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 ## Features
 
 #### Build command  
-ChucK Build command (initial Build command by Sharov Anton).
+Build and Cancel Build are implemented. This means you write code hit the cmd+B / ctrl+B and sublime will send
+chuck the file to play. Cancel Build will end that ChucK instance. The great thing about keeping the code editing
+and the ChucK player separate is that if ChucK crashes this doesn't affect Sublime. This is unlike if you edit 
+inside the miniAudicle, if chuck crashes most likely so will the miniAudicle.
 
 - Goto error (bound to F4). When you encounter an error, if ChucK was able to provide the line 
  on which the error occured, then hitting f4 will navigate the sublime editor to that line.
@@ -90,7 +93,7 @@ you will record.
 the wav to disk.
 - Currently you need a copy of `wav_writer.ck` in the same directory as the `.ck` you wish to record.
 
-### TODO  
+## TODO  
 
 #### Tools > ChucK sub menu:  
 The menu is implemented but currently it is a stub, so avoid using it for now. There are 
@@ -108,7 +111,6 @@ the list:
   - replace / remove shred by id
   - remove all shreds.
 
- 
 
 ## Notes
 - The default keybinds for `chuck_doc_search` and `iternotate` conflict with fold/unfold.
@@ -129,6 +131,8 @@ Probably many
 ## Thanks
 
 - Geoffroy Montel (http://schemawound.com) for the ST2 Supercollider plugin.
+- Sharov Anton (initial Build command)
+- Nathan Leiby (syntax highlighter conversion from textmate) 
 
 #### Testing:
 
