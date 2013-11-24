@@ -58,8 +58,9 @@ Often short, commonly used, syntactical structures can be inserted with only a f
 `iternotate.py`: despite the awkward name this saves you from writing out full for-loops, Write the shorthand and
 press the keyboard shortcut and watch it expand into the full ChucK for-loop  
 
-`i..n` (where , `i` is your chosen iteration variable _name_, and `n` is a number)  
-`i..some_array`  
+- `i..n` (where , `i` is your chosen iteration variable _name_, and `n` is a number)  
+- `i..some_array`  
+
 
 ```chuck
 // i..5
