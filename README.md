@@ -30,30 +30,33 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 
 ## Features
 
-### Build command  
+#### Build command  
 - ChucK Build command (initial Build command by Sharov Anton).
   - Goto error (bound to F4).
 
-### Syntax Highlighting  
+#### Syntax Highlighting  
 - Syntax definition/coloring (Nathan Leiby).
 
-### Completions  
-- Completions (quaestor, zeffii).
+#### Completions  
+We've assembled most of the names of objects and methods that appear in the ChucK language. 
+This helps you if you don't want to type so much or can't recall the names of the built-in stuff. 
 
-### Snippets.  
+- this is a work in progress by quaestor and zeffii.
+
+#### Snippets.  
 (short) commonly used syntactical structures are available with only a few keystrokes.
 (examples)
  
-### Doc Search
+#### Doc Search
 `chuck_doc_search.py`: searches the ChucK online help for a currently selected word. it takes:
  - Any `Ugen` _name_
  - Any of the following terms (not case sensitive):
    - `arrays, std, math, machine, help, class, types, and vm`  
    - dot methods for `Std` and `Math` will also work, try doc search: `Math.max` or `Std.mtof`.
 
-### Iternotate  
-`iternotate.py`: despite the awkward name this saves you from writing out full for-loops, simply write the shorthand and
-press the keyboard shortcut to tell the script to expand your shorthand into the full chuck for-loop  
+#### Iternotate  
+`iternotate.py`: despite the awkward name this saves you from writing out full for-loops, Write the shorthand and
+press the keyboard shortcut and watch it expand into the full ChucK for-loop  
 
 `i..n` (where , `i` is your chosen iteration variable _name_, and `n` is a number)
 `i..some_array`  
@@ -70,7 +73,7 @@ for(0 => int i; i<iterable.cap(); i++){
 }
 ```
 
-### Wav Writer  
+#### Wav Writer  
 Writes the current chuck file as stereo wav to disk. We use the concept of an inline console to tell `wav_writer.py` 
 what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
 
@@ -84,7 +87,7 @@ is after it. `20` means you want that many seconds, `demo_sound` is the name of 
 you will record. This feature uses a threaded sub process, it allows you to use sublime whle python 
 waits for chuck to write the wav to disk.
 
-### Tools > ChucK sub menu (todo) :
+#### Tools > ChucK sub menu (todo) :
   - TODO: Stop all sounds.
   - TODO: Start and stop ChucK.
   - TODO: add / replace / remove shreds.
