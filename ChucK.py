@@ -185,7 +185,6 @@ class Ck_wav_write(sublime_plugin.TextCommand):
         file_path = view.file_name()
         file_name = os.path.basename(file_path)
 
-
         selections = view.sel()
         if selections[0].a == selections[0].b:
 
@@ -229,7 +228,8 @@ new_wavename   can be anything you want, just don't use punctuation.""")
                         stderr=subprocess.STDOUT, 
                         shell=True).communicate()
 
-                if not p:  # if not None
-                    for line in p:
-                        print(line.decode())
+                if p:
+                    print(p[0].decode())
+
+
 
