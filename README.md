@@ -19,8 +19,8 @@ http://chuck.cs.princeton.edu
 
 ## Usage  
 
- - Currently to get sounds out of SublimeText3 + ChucK we've set up a 
-simple build script. If you are new to SublimeText, the menu to look for is located in Tools -> Build System. 
+Currently to get sounds out of SublimeText3 + ChucK we've set up a simple build script. 
+If you are new to SublimeText, the menu to look for is located in Tools -> Build System. 
 If `automatic` is not ticked then tick it, or you can set it manually by selecting ChucK from this list. To hear some sounds:
     - load a `.ck` file or start a new file and save it with a `.ck` extension first (to let sublime know what kind of file it is)
     - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
