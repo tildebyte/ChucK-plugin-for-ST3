@@ -114,6 +114,10 @@ the list:
   - replace / remove shred by id
   - remove all shreds.
 
+#### Issue Tracker  
+[The issue tracker](https://github.com/tildebyte/ChucK-plugin-for-ST3/issues?state=open) is a good place to look
+ if you encounter a bug, or to justify/defend a feature request. It's where we go to discuss ideas and resolve bugs.
+
 
 ## Notes
 - The default keybinds for `chuck_doc_search` and `iternotate` conflict with fold/unfold.
