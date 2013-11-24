@@ -33,7 +33,7 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 #### Build command  
 ChucK Build command (initial Build command by Sharov Anton).
 
-- Goto error (bound to F4). When you encounter an error in your ChucK progream, if ChucK was able to provide the line 
+- Goto error (bound to F4). When you encounter an error, if ChucK was able to provide the line 
  on which the error occured, then hitting f4 will navigate the sublime editor to that line.
 
 #### Syntax Highlighting  
