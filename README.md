@@ -62,7 +62,7 @@ press the keyboard shortcut and watch it expand.
 - `i..some_array`  
 
 
-```ck
+```c
 // i..5
 for(0 => int i; i<5; i++){
     i;
@@ -78,7 +78,7 @@ for(0 => int i; i<iterable.cap(); i++){
 Writes the current chuck file as stereo wav to disk. We use the concept of an inline console to tell `wav_writer.py` 
 what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
 
-```ck
+```c
 SinOsc d => dac;  
 20::second => now;   // %> 20:demo_sound
 ```
