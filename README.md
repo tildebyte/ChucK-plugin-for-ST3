@@ -59,7 +59,7 @@ Often short, commonly used, syntactical structures can be inserted with only a f
 press the keyboard shortcut and watch it expand.  
 
 - `i..n` (where `i` is your chosen iteration variable _name_, and `n` is a number)  
-- `i..some_array` can be used if you want to iterate of an array. 
+- `i..some_array` can be used if you want to iterate over an array. 
 
 
 ```c
