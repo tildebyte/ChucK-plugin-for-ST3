@@ -75,7 +75,7 @@ for(0 => int i; i<iterable.cap(); i++){
 ```
 
 #### Wav Writer  
-Writes the current chuck file as stereo wav to disk. We use the concept of an inline console to tell `wav_writer.py` 
+Writes the current ChucK file as stereo wav to disk. We use the concept of an inline console to tell `wav_writer.py` 
 what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
 
 ```c
@@ -85,13 +85,30 @@ SinOsc d => dac;
 
 If the cursor caret is on the line with the comment using that `%>` token it will try to parse what 
 is after it. `20` means you want that many seconds, `demo_sound` is the name of the output stereo wav 
-you will record. This feature uses a threaded sub process, it allows you to use sublime while chuck writes
+you will record.  
+- This feature uses a threaded sub process, it allows you to use sublime while chuck writes
 the wav to disk.
+- Currently you need a copy of `wav_writer.ck` in the same directory as the `.ck` you wish to record.
 
-#### Tools > ChucK sub menu (todo) :
-  - TODO: Stop all sounds.
-  - TODO: Start and stop ChucK.
-  - TODO: add / replace / remove shreds.
+### TODO  
+
+#### Tools > ChucK sub menu:  
+The menu is implemented but currently it is a stub, so avoid using it for now. There are 
+renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even 
+happen that the ChucK menu is ditched in favour of the REPL as a console or inline console 
+comment-commands as implemented wav_writer.
+
+the list:  
+
+  - start ChucK in `--shell` mode (server).
+  - kill ChucK server.
+  - add shred (current open file)
+  - add selection as shred (sends everything enclosed in { } as an 'on the fly' shred)
+  - replace / remove shred named x
+  - replace / remove shred by id
+  - remove all shreds.
+
+ 
 
 ## Notes
 - The default keybinds for `chuck_doc_search` and `iternotate` conflict with fold/unfold.
