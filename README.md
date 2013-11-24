@@ -45,7 +45,7 @@ This helps you type less and show correct spelling of the built-in stuff. Very m
 
 #### Snippets.  
 Often short, commonly used, syntactical structures can be inserted with only a few keystrokes.
-(examples)
+([examples](https://github.com/tildebyte/ChucK-plugin-for-ST3/tree/master/snippets))
  
 #### Doc Search
 `chuck_doc_search.py`: searches the ChucK online help for a currently selected word. it takes:
