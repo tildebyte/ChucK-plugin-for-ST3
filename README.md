@@ -31,20 +31,20 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 ## Features
 
 #### Build command  
-- ChucK Build command (initial Build command by Sharov Anton).
-  - Goto error (bound to F4).
+ChucK Build command (initial Build command by Sharov Anton).
+
+- Goto error (bound to F4). When you encounter an error in your ChucK progream, if ChucK was able to provide the line 
+ on which the error occured, then hitting f4 will navigate the sublime editor to that line.
 
 #### Syntax Highlighting  
-- Syntax definition/coloring (Nathan Leiby, based on textmate support by [tasmo](http://tasmo.github.com/ChucK.tmbundle)).
+Syntax definition/coloring (Nathan Leiby, based on textmate support by [tasmo](http://tasmo.github.com/ChucK.tmbundle)).
 
 #### Completions  
 We've assembled most of the names of objects and methods that appear in the ChucK language. 
-This helps you if you don't want to type so much or can't recall the names of the built-in stuff. 
-
-- this is a work in progress by quaestor and zeffii.
+This helps you type less and show correct spelling of the built-in stuff. Very much a work in progress.
 
 #### Snippets.  
-(short) commonly used syntactical structures are available with only a few keystrokes.
+Often short, commonly used, syntactical structures can be inserted with only a few keystrokes.
 (examples)
  
 #### Doc Search
