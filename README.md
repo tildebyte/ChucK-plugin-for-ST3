@@ -35,7 +35,7 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
   - Goto error (bound to F4).
 
 #### Syntax Highlighting  
-- Syntax definition/coloring (Nathan Leiby).
+- Syntax definition/coloring (Nathan Leiby, based on textmate support by [tasmo](http://tasmo.github.com/ChucK.tmbundle)).
 
 #### Completions  
 We've assembled most of the names of objects and methods that appear in the ChucK language. 
