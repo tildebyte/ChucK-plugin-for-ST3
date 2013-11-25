@@ -105,7 +105,7 @@ class Iternotate(sublime_plugin.TextCommand):
             print("you have several selections, unselect all")
             return False
 
-        fsel = sels[0]              # carret position, if no selection.
+        fsel = sels[0]              # caret position, if no selection.
         if not (fsel.a == fsel.b):
             print("unselect everything, cursor caret on the line is sufficient")
             return False
