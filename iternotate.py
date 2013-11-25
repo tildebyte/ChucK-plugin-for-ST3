@@ -100,16 +100,15 @@ class Iternotate(sublime_plugin.TextCommand):
 
 
     def enabled(self):
-
         sels   = self.view.sel()    # lists regions, 
-        nsels  = len(sels)          # dir(sels[0]) for methods
-        fsel   = sels[0]            # carret position, if no selection.
+        if len(sels) > 1:
+            print("you have several selections, unselect all")
+            return False
 
-        # get all characters on the line
-        sel = self.view.line(fsel) 
+        fsel = sels[0]              # carret position, if no selection.
+        if not (fsel.a == fsel.b):
+            print("unselect everything, cursor caret on the line is sufficient")
+            return False
 
-        # get the content
-        selection = self.view.substr(sel)
-        if fsel.empty():
-            return True
+        return True
 
