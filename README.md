@@ -106,7 +106,7 @@ the wav to disk.
 The menu is implemented but currently it is a stub, so avoid using it for now. There are 
 renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even 
 happen that the ChucK menu is ditched in favour of the REPL as a console or inline console 
-comment-commands as implemented wav_writer.
+comment-commands as implemented in wav_writer.
 
 the list:  
 
