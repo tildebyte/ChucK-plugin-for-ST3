@@ -54,8 +54,8 @@ Often short, commonly used, syntactical structures can be inserted with only a f
 
 - typing `pr` and hitting enter will produce `<<<  >>>; ` 
 - typing `arr` and enter will present an array declaration, first write in the `type` hit tab then fill in the 
-array name. This will produce `@=> type<int,string,..etc> array_name`.
-([more examples](https://github.com/tildebyte/ChucK-plugin-for-ST3/tree/master/snippets))
+array name. This will produce `@=> type<int,string,..etc> array_name`.  
+- ([more examples](https://github.com/tildebyte/ChucK-plugin-for-ST3/tree/master/snippets))
  
 #### Doc Search
 `chuck_doc_search.py`: searches the ChucK online help for a currently selected word. it takes:
