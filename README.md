@@ -110,9 +110,9 @@ comment-commands as implemented in wav_writer.
 
 the list:  
 
-  - start ChucK in `--shell` mode (server).
-  - kill ChucK server.
-  - add shred (current open file)
+  - start ChucK in `--shell` mode (server). (done)
+  - kill ChucK server. (done)
+  - add shred (current open file) (wip, once this works the rest work automatically)
   - add selection as shred (sends everything enclosed in { } as an 'on the fly' shred)
   - replace / remove shred named x
   - replace / remove shred by id
