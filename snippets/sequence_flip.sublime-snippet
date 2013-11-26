@@ -1,0 +1,6 @@
+<snippet>
+    <description>Sequential flip upon iteration...</description>
+    <content><![CDATA[((((${1}%2)*2)-1)*0.${2})]]></content>
+    <tabTrigger>sflip</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
