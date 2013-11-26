@@ -25,14 +25,14 @@ If `automatic` is not ticked then tick it, or you can set it manually by selecti
 
 - load a `.ck` file or start a new file and save it with a `.ck` extension first (to let sublime know what kind of file it is)
 - write out your chuck code, notice the beautiful syntax highlighting, completions and hints.
-- hit the shortcut for build (cmd+B, or ctrl+B by default). 
+- hit the shortcut for build (⌘+B, or ctrl+B by default). 
 - to stop chuck, end the build command ( See the shortcut listed in Tools -> Cancel Build )  
 
 
 ## Features
 
 #### Build command  
-Build and Cancel Build are implemented. This means you write code hit the cmd+B / ctrl+B and sublime will send
+Build and Cancel Build are implemented. This means you write code hit the ⌘+B / ctrl+B and sublime will send
 chuck the file to play. Cancel Build will end that ChucK instance. The great thing about keeping the code editing
 and the ChucK player separate is that if ChucK crashes this doesn't affect Sublime. This is unlike if you edit 
 inside the miniAudicle, if chuck crashes most likely so will the miniAudicle.
