@@ -18,21 +18,21 @@ A Sublime Text 3 plugin for ChucK, featuring syntax highlighting, tab completion
 ## Usage
 
 Currently to get sounds out of Sublime Text 3 + ChucK we've set up a simple build script. 
-If you are new to SublimeText, the menu to look for is located in **Tools -> Build System**. 
+If you are new to SublimeText, the menu to look for is located in *Tools -> Build System*. 
 If *automatic* is not ticked then tick it, or you can set it manually by selecting ChucK from this list. To hear some sounds:
 
-- Load a **.ck** file or start a new file and save it with a **.ck** extension first (to let Sublime know what kind of file it is).
+- Load a *.ck* file or start a new file and save it with a *.ck* extension first (to let Sublime know what kind of file it is).
 - Enter your code; notice the beautiful syntax highlighting, completions and hints.
-- Hit the shortcut for build (**⌘+B**, or **CTRL+B** by default). 
-- To stop ChucK, end the build command (See the shortcut listed in **Tools -> Cancel Build**. On OSX, **CTRL+C** should work. Windows has **CTRL+BREAK** listed as the shortcut, but it might not work with all keyboards).
+- Hit the shortcut for build (*⌘+B*, or *CTRL+B* by default). 
+- To stop ChucK, end the build command (See the shortcut listed in *Tools -> Cancel Build*. On OSX, *CTRL+C* should work. Windows has *CTRL+BREAK* listed as the shortcut, but it might not work with all keyboards).
 
 
 ## Features
 
 #### Build command
-- **Build** and **Cancel Build** are implemented. This means you write code, hit the **⌘+B** / **ctrl+B** shortcut, and Sublime will send the file to play to ChucK . **Cancel Build** will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
+- *Build* and *Cancel Build* are implemented. This means you write code, hit the *⌘+B* / *ctrl+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
 
-- Goto error (bound to **F4**). When you encounter an error, if ChucK was able to provide the line on which the error occured, the error information will be printed in the ST status line. Hitting **F4** will navigate the Sublime editor to that line and file (and subsequent lines, if any).
+- Goto error (bound to *F4*). When you encounter an error, if ChucK was able to provide the line on which the error occured, the error information will be printed in the ST status line. Hitting *F4* will navigate the Sublime editor to that line and file (and subsequent lines, if any).
 
 #### Syntax Highlighting
 Syntax definition/coloring of all major language constructs (types, syntax etc). If your code looks OK, this is a good first indication that your syntax is correct. There are a few subtle bugs listed at the end in the bugs section, but they do not impede beyond aesthetics.
@@ -41,21 +41,21 @@ Syntax definition/coloring of all major language constructs (types, syntax etc).
 We've included many objects and methods which appear in the ChucK language. This helps you type less and shows correct spelling for the built-in stuff. Very much a work in progress.
 
 #### Snippets.
-Some short, commonly used, syntactical structures (e.g. **while** loops) can be inserted with only a few keystrokes.
+Some short, commonly used, syntactical structures (e.g. *while* loops) can be inserted with only a few keystrokes.
 
 - Typing `pr` and hitting enter will insert `<<<  >>>;` 
-- Typing `arr` and enter will insert an array declaration; first enter the type, then hit **TAB**, then fill in the array name. This will produce `@=> <int,string,..etc> array_name[]`.
+- Typing `arr` and enter will insert an array declaration; first enter the type, then hit *TAB*, then fill in the array name. This will produce `@=> <int,string,..etc> array_name[]`.
 - [More examples] [4].
  
 #### Doc Search
-**chuck_doc_search.py**: searches the ChucK online help for the currently selected word. It takes:
+*chuck_doc_search.py*: searches the ChucK online help for the currently selected word. It takes:
  - Any UGen _name_.
  - Any of the following terms (not case sensitive):
    - help, Array, Std, Math, Machine, Class, Types, and VM
    - Dot methods for `Std` and `Math` will also work; try a doc search on `Math.max` or `Std.mtof`.
 
 #### Iternotate
-**iternotate.py**: despite the awkward name, this saves you from typing full for-loops. Enter the shorthand and press the keyboard shortcut and watch it expand.
+*iternotate.py*: despite the awkward name, this saves you from typing full for-loops. Enter the shorthand and press the keyboard shortcut and watch it expand.
 
 - `i..n` (where `i` is your chosen iteration variable _name_, and `n` is a number or an int variable).
 - `i..array_name[]` can be used if you want to iterate over an array.
@@ -80,16 +80,16 @@ for(0 => int i; i<iterable.cap(); i++){
 ```
 
 #### Wav Writer
-Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell **wav_writer.py** what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
+Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
 
 ```c
 SinOsc d => dac;
 20::second => now;  // %> 20:demo_sound
 ```
 
-If the cursor caret is on the line with the comment using the `%>` token it will try to parse what is after it. "20" means you want that many seconds, **demo_sound** is the name of the output stereo wav you will record.
+If the cursor caret is on the line with the comment using the `%>` token it will try to parse what is after it. "20" means you want that many seconds, *demo_sound* is the name of the output stereo wav you will record.
   - This feature uses a threaded sub process; it allows you to use Sublime while ChucK writes the wav to disk.
-  - Currently, you need a copy of **wav_writer.ck** in the same directory as the **.ck** file you wish to record.
+  - Currently, you need a copy of *wav_writer.ck* in the same directory as the *.ck* file you wish to record.
 
 ## TODO
 
@@ -97,9 +97,9 @@ If the cursor caret is on the line with the comment using the `%>` token it will
 The [issue tracker] [5] is a good place to look if you encounter a bug, or to justify/defend a feature request. It's where we go to discuss ideas and resolve bugs.
 
 
-#### **Tools > ChucK** sub menu:
+#### *Tools > ChucK* sub menu:
 The menu is implemented but currently it is a stub, so avoid using it for now. There are 
-renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even happen that the ChucK menu is ditched in favour of the REPL as a console, or inline console comment-commands as implemented in **wav_writer.py**.
+renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even happen that the ChucK menu is ditched in favour of the REPL as a console, or inline console comment-commands as implemented in *wav_writer.py*.
 
 The list:
 
@@ -112,7 +112,7 @@ The list:
   - [ ] Remove all shreds.
 
 ## Notes
-The default keybinds for **chuck_doc_search** and **iternotate** conflict with **Fold/Unfold**.
+The default keybinds for *chuck_doc_search* and *iternotate* conflict with *Fold/Unfold*.
 
 ## Known bugs
 Probably many, but we are aware of these:
