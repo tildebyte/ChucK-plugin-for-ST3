@@ -57,8 +57,8 @@ Some short, commonly used, syntactical structures (e.g. **while** loops) can be 
 #### Iternotate
 **iternotate.py**: despite the awkward name, this saves you from typing full for-loops. Enter the shorthand and press the keyboard shortcut and watch it expand.
 
-- `i..n` (where `i` is your chosen iteration variable _name_, and `n` is a number).
-- `i..array_name` can be used if you want to iterate over an array.
+- `i..n` (where `i` is your chosen iteration variable _name_, and `n` is a number or an int variable).
+- `i..array_name[]` can be used if you want to iterate over an array.
 
 
 
@@ -68,7 +68,12 @@ for(0 => int i; i<5; i++){
     i;
 }
 
-// i..iterable
+// i..num_times
+for(0 => int i; i<num_times; i++){
+    i;
+}
+
+// i..iterable[  or  i..iterable[]  
 for(0 => int i; i<iterable.cap(); i++){
     iterable[i];
 }
@@ -106,17 +111,14 @@ The list:
   - [ ] Replace/remove shred by id.
   - [ ] Remove all shreds.
 
-#### Iternotate
-**iternotate.py** should accept `i..variable_name` **and** `i..variable_name[`, where the extra **[** indicates that **variable_name** is an array (meaning it will add `.cap()`); if **[** isn't present, then **variable_name** is assumed to be a number.
-
 ## Notes
 The default keybinds for **chuck_doc_search** and **iternotate** conflict with **Fold/Unfold**.
 
 ## Known bugs
 Probably many, but we are aware of these:
 
-- If you **Build** a shred while another shred is playing, you cannot stop the first shred.
-    - Workaround: Open Sublime's Python console and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it *with fire*.
+- While we stil rely on the build script to play chuck files, if you `Build` a shred while another shred is playing, you cannot stop the first shred anymore.  
+  - Workaround: Open Sublime's Python console and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it *with fire*.
 - using `.cap()` will render the rest of the line in white.
 - `//` comments will sometimes cause weird highlighting in the comment itself.
 
