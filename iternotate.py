@@ -12,8 +12,13 @@ The plugin will output
   for(0 => int i; i<5; i++){
       i;
   }
+
+  // i..num_times
+  for(0 => int i; i<num_times; i++){
+      i;
+  }
   
-  // i..iterable
+  // i..iterable[   or   i..iterable[]
   for(0 => int i; i<iterable.cap(); i++){
       iterable[i];
   }
@@ -32,9 +37,11 @@ def check_is_loopform(istr):
     restr = restr.strip()
     
     # python 2.6 has no 'startswith'
-    msg = """must be like:  i..n  or  i..iterable\n
-- i can be any identifier\n
-- n can be any integer"""
+    msg = """must be like:  i..n  or  i..num_items  or  i..iterable[]
+- i can be any identifier
+- n can be any integer
+- num_items can be any variable that represents a number
+- iterable[] can be any Object with a .cap() method returning a number"""
     if (not ".." in restr):
         print(msg)
         return
@@ -45,8 +52,21 @@ def check_is_loopform(istr):
         print(msg)
         return
 
-    # will return information in last element about how to rewrite   
-    return [spaces, elements, elements[1].isnumeric()]
+    # will return information in last element about how to rewrite
+    # added [] as well because sublime will often autocomplete it anyway.
+    if any([elements[1].endswith(opt) for opt in ("[", "[]")]):
+        
+        # remove last char.
+        elements[1] = elements[1][:-1]
+        # quick check if last char is part of an array notation, remove that. 
+        if elements[1][-1] == "[":
+            elements[1] = elements[1][:-1]
+        
+        is_number = False
+    else:
+        is_number = True
+
+    return [spaces, elements, is_number]
       
 
 def perform_replacement(istr):
