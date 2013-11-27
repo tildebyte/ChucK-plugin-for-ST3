@@ -120,7 +120,8 @@ Probably many, but we are aware of these:
 - While we stil rely on the build script to play chuck files, if you `Build` a shred while another shred is playing, you cannot stop the first shred anymore.  
   - Workaround: Open Sublime's Python console and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it *with fire*.
 - using `.cap()` will render the rest of the line in white.
-- `//` comments will sometimes cause weird highlighting in the comment itself.
+- `//` comments will sometimes cause weird highlighting in the comment itself.  
+- Doc Search currently behaves differently under firefox and webkit (chrome, safari..etc). This has to do with these browsers not implementing `url#section` the same way. This issue is compounded by the ChucK docs using inconsistent rules for named ids. More about this topic [here] [12]
 
 
 ## Authors
@@ -154,4 +155,5 @@ Probably many, but we are aware of these:
 [8]: http://www.coursera.org/user/i/6591636f6ce50babb61bb547c721fac4    "Sharov Anton at Coursera"
 [9]: http://github.com/nathanleiby    "Nathan Leiby on GitHub"
 [10]: http://schemawound.com    "Geoffroy Montel"
-[11]: http://tasmo.github.com/ChucK.tmbundle    "Download the original bundle here"
+[11]: http://tasmo.github.com/ChucK.tmbundle    "Download the original bundle here"  
+[12]: https://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
