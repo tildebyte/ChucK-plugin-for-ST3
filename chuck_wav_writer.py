@@ -13,7 +13,7 @@ the form to write in is:  // %> 20:new_wavename.
 new_wavename   can be anything you want, just don't use punctuation."""
 
 
-class Ck_wav_write(sublime_plugin.TextCommand):
+class Ck_wav_writer(sublime_plugin.TextCommand):
     def run(self, edit):
         """
         a copy of wav_writer.ck must be located in the same folder 
@@ -28,13 +28,8 @@ class Ck_wav_write(sublime_plugin.TextCommand):
         """
 
         view = self.view
-        file_path = view.file_name()
-        file_name = os.path.basename(file_path)
-
-        # fp2 = file_path.replace("\\", "\\\\")
-        # print(fp2)
-
         selections = view.sel()
+
         if selections[0].a == selections[0].b:
 
             sel = view.line(selections[0])
@@ -60,27 +55,35 @@ class Ck_wav_write(sublime_plugin.TextCommand):
                     return
 
                 # compile commands for subprocess.
+                file_path = view.file_name()
+                file_name = os.path.basename(file_path)
+
                 cc = ["wav_writer.ck", str(song_duration), wav_name]
                 record_commands = ":".join(cc)
                 chuck_init_wav = ["chuck", file_name, record_commands, "-s"]
                 print("\nsending:")
                 print("> " +  " ".join(chuck_init_wav) + "\n")
 
-                th = Ck_DiskWriter_Thread(chuck_init_wav)
+                cwd = os.path.dirname(file_path)
+                th = Ck_DiskWriter_Thread(cwd, chuck_init_wav)
                 th.start()
 
         
 class Ck_DiskWriter_Thread(threading.Thread):
-    def __init__(self, chuck_init_wav):
-        self. chuck_init_wav = chuck_init_wav
+    def __init__(self, cwd, chuck_init_wav):
+        self.chuck_init_wav = chuck_init_wav
+        self.cwd = cwd
         threading.Thread.__init__(self)
 
     def run(self):
+        print("processing: ", end=" ")
         p = subprocess.Popen(self.chuck_init_wav, 
+                        cwd=self.cwd,
                         stdout=subprocess.PIPE, 
                         stderr=subprocess.STDOUT, 
                         shell=True).communicate()
 
         # don't need to show these...
-        #if p:
-        #    print(p[0].decode())
+        # if p:
+        #     print(p[0].decode())
+        print("complete! ")
