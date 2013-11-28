@@ -18,6 +18,9 @@
     "keys": ["alt+k", "c"], "command": "ck_clear_vm"
   },
   {
+    "keys": ["ctrl+shift+w"], "command": "ck_wav_writer"
+  },  
+  {
     "keys": ["ctrl+shift+]"], "command": "chuck_doc_search"
   },
   {
