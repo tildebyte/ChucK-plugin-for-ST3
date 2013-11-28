@@ -75,13 +75,11 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
             file_path = self.view.file_name()
             file_name = os.path.basename(file_path)
             cwd = os.path.dirname(file_path)
+            print("Starting ChucK : ", cwd)
             
-            ck_exe = settings.get("ck_exe")
-            print("Starting ChucK : "+ck_dir + " " + ck_exe)
-            
-            chuck_init = [ck_exe, '--shell']
+            chuck_init = ["chuck", '--shell']
 
-            Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_init, 
+            Ck_shell_command.chuck_process = subprocess.Popen(chuck_init, 
                 cwd=cwd, bufsize=1, 
                 close_fds=ON_POSIX, 
                 stdin=subprocess.PIPE, 
