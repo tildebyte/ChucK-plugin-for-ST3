@@ -71,14 +71,18 @@ class Ck_loop_vmCommand(sublime_plugin.WindowCommand):
         # start ChucK
         if Ck_loop_vmCommand.chuck_thread is None or not Ck_loop_vmCommand.chuck_thread.isAlive():
             settings = sublime.load_settings("ChucK.sublime-settings")
-            ck_dir = settings.get("ck_dir")
+            
+            file_path = self.view.file_name()
+            file_name = os.path.basename(file_path)
+            cwd = os.path.dirname(file_path)
+            
             ck_exe = settings.get("ck_exe")
             print("Starting ChucK : "+ck_dir + " " + ck_exe)
             
             chuck_init = [ck_exe, '--shell']
 
             Ck_loop_vmCommand.chuck_process = subprocess.Popen(chuck_init, 
-                cwd=ck_dir, bufsize=1, 
+                cwd=cwd, bufsize=1, 
                 close_fds=ON_POSIX, 
                 stdin=subprocess.PIPE, 
                 stdout=subprocess.PIPE, 
