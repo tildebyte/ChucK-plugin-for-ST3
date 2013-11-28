@@ -4,9 +4,47 @@ import sys
 import subprocess
 import threading
 import webbrowser
+import os
 from queue import Queue, Empty
 
 ON_POSIX = 'posix' in sys.builtin_module_names
+
+def command_dispatcher(chuck_console, commands):
+    print("doing command:", commands)
+    chuck_console.stdin.write(commands)
+    chuck_console.stdin.write("\x0c")
+    chuck_console.stdin.flush()
+
+def kill_chuck():
+    subprocess.call(["chuck", "--kill"])        
+    print("ending a chuck process!")
+    return
+
+def com_parser(line_under_cursor, file_name):
+    right_side = None
+
+    try:
+        found_content = line_under_cursor.rsplit("//", 1)[1]
+        found_content = found_content.strip()
+
+        if found_content in ("kill", "%> -k"):
+            return "kill"
+
+        # if found_content == "chuck --shell":
+        #     return "shell"
+
+        sides = found_content.split("%>")
+        right_side = sides[1].strip()
+
+        # this will refer to the name of the current file.ck
+        if "this" in right_side:
+            right_side = right_side.replace("this", file_name)
+       
+    except: 
+        print("unparsable")
+        return
+
+    return right_side
 
 
 def enqueue_output(out, queue):
@@ -116,31 +154,27 @@ class Ck_add_shredCommand(sublime_plugin.WindowCommand):
     def run(self):
         if Ck_loop_vmCommand.chuck_thread is not None and Ck_loop_vmCommand.chuck_thread.isAlive():
             view = self.window.active_view()
-            sel = view.sel()
-            point = sel[0]
-            line = view.line(point)
-            line_str = view.substr(line)
 
-            # user has pressed add shred, probably wants to add active view as a shred
-            # we have options, we can either:
-            # - send the "+ file.ck" command to shell
-            # - use the "on the fly" feature to send the selected code/view to shell
-            # - have another mode:
-            #       - send .ck (current view)
-            #       - send selected lines to evaluate as new minishred
+            print("still allive")
+            file_path = view.file_name()
+            file_name = os.path.basename(file_path)
 
+            selections = view.sel()
+            if not selections[0].a == selections[0].b:
+                print("see com shell documentation")
+                return
+            
+            sel = view.line(selections[0])
+            line_under_cursor = view.substr(sel)
+            
+            commands = com_parser(line_under_cursor, file_name)
+            if not commands:
+                return
 
-            # # if the selection comprises of only character and it's a ( or ), expand
-            # if (point.a == point.b) and (line_str[0] in '()'):
-            #     view.run_command("expand_selection", {"to": "brackets"})
-            # sel = view.sel()
-            # region = view.line(sel[0])
-            # lines = view.substr(region).split("\n")
-            # for l in lines:
-            #     Ck_loop_vmCommand.chuck_process.stdin.write(l.encode("utf-8", "ignore")+"\n")
-            # Ck_loop_vmCommand.chuck_process.stdin.write("\x0c")
-            # Ck_loop_vmCommand.chuck_process.stdin.flush()
+            if commands == "kill":
+                commands = "--kill"
 
+            command_dispatcher(Ck_loop_vmCommand.chuck_process, commands)
 
 
 # command to show the ChucK console
