@@ -57,6 +57,7 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
                 # compile commands for subprocess.
                 file_path = view.file_name()
                 file_name = os.path.basename(file_path)
+                cwd = os.path.dirname(file_path)
 
                 cc = ["wav_writer.ck", str(song_duration), wav_name]
                 record_commands = ":".join(cc)
@@ -64,7 +65,6 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
                 print("\nsending:")
                 print("> " +  " ".join(chuck_init_wav) + "\n")
 
-                cwd = os.path.dirname(file_path)
                 th = Ck_DiskWriter_Thread(cwd, chuck_init_wav)
                 th.start()
 
