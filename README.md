@@ -80,7 +80,7 @@ for(0 => int i; i<iterable.cap(); i++){
 ```
 
 #### Wav Writer
-Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
+Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *chuck_wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
 
 ```c
 SinOsc d => dac;
@@ -99,7 +99,7 @@ The [issue tracker] [5] is a good place to look if you encounter a bug, or to ju
 
 #### *Tools > ChucK* sub menu:
 The menu is implemented but currently it is a stub, so avoid using it for now. There are 
-renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even happen that the ChucK menu is ditched in favour of the REPL as a console, or inline console comment-commands as implemented in *wav_writer.py*.
+renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even happen that the ChucK menu is ditched in favour of the REPL as a console, or inline console comment-commands as implemented in *chuck_wav_writer.py*.
 
 The list:
 
