@@ -1,0 +1,23 @@
+<snippet>
+    <description>load sample into SndBuf object...</description>
+    <content>
+<![CDATA[
+fun SndBuf load_sample(string wavname){
+    // usage:  load_sample("kick_02") @=> SndBuf kick => dac;
+ 
+    // turn incoming wavname into   path/wavename.wav
+    SndBuf temp_buff;
+    me.dir() + "/audio/" + wavname  + ".wav" => temp_buff.read;
+ 
+    // set to end, and set gain, then return the object
+    temp_buff.samples() => temp_buff.pos;   
+    0.8 => temp_buff.gain; // optional default
+
+    // return a reference to the new buffer object.
+    return temp_buff;
+}
+]]>
+    </content>
+    <tabTrigger>load sample</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
