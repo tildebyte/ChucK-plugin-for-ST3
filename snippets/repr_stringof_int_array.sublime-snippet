@@ -1,0 +1,20 @@
+<snippet>
+    <description>returns stringof int array...</description>
+    <content>
+<![CDATA[
+fun string repr(int arr[]){
+    /*
+    this returns a string representation of an int array,
+    useful for debug printing.
+    */
+    "[" + Std.itoa(arr[0]) => string s;
+    for (1 => int i; i < arr.cap(); i++){
+        "," + Std.itoa(arr[i]) +=> s;
+    }
+    return s + "]";
+}
+]]>
+    </content>
+    <tabTrigger>repr stringof int array</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
