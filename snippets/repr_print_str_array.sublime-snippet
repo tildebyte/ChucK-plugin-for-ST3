@@ -1,0 +1,20 @@
+<snippet>
+    <description>prints str array...</description>
+    <content>
+<![CDATA[
+fun void repr_string_array(string arr[])
+{
+    arr.cap() => int num_items;
+    chout <= "[";
+    for(0 => int i; i<num_items; i++){
+        if (i>0) chout <= ",";    
+        chout <= arr[i];
+    }
+    chout <= "]";
+    chout <= IO.newline();
+}
+]]>
+    </content>
+    <tabTrigger>repr str array (print)</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
