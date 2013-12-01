@@ -1,0 +1,20 @@
+<snippet>
+    <description>returns stringof str array...</description>
+    <content>
+<![CDATA[
+fun string repr(string arr[]){
+    
+    //this returns a string representation of a string array,
+    //useful for debug printing.
+    
+    "[" + arr[0] => string s;
+    for (1 => int i; i < arr.cap(); i++){
+        "," + arr[i] +=> s;
+    }
+    return s + "]";
+}
+]]>
+    </content>
+    <tabTrigger>repr stringof str array</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
