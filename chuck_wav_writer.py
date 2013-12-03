@@ -20,9 +20,11 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
         as the .ck you're trying to record. 
 
         usage: 
-        (command line):         chuck somefile.ck wav_writer.ck:20:new_wavename
-        (wav_writer syntax):    // %> 20:new_wavename
+        (command line):                    chuck somefile.ck wav_writer.ck:20:new_wavename
+        (wav_writer syntax)           :    // %> 20:new_wavename
+        (wav_writer syntax with gain) :    // %> 20:new_wavename:0.89
 
+        gain is a float value. (safe between 0.0 to 1.0)
         we can drop the first filename because it refers to the current file at the 
         time.
         """
@@ -37,13 +39,20 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
             
             song_duration = None
             wav_name = None
+            max_amp = None
             try:
 
                 # get the last portion after the comment, split and strip
                 found_content = selection.rsplit("//", 1)[1]
                 sides = found_content.split("%>")
                 right_side = sides[1].strip()
-                song_duration, wav_name = [s.strip() for s in right_side.split(":")]
+                # song_duration, wav_name = [s.strip() for s in right_side.split(":")]
+                found_parameters = [s.strip() for s in right_side.split(":")]
+                if len(found_parameters) == 2:
+                    max_amp = 1.0
+                    song_duration, wav_name = found_parameters
+                elif len(found_parameters) == 3:
+                    song_duration, wav_name, max_amp = found_parameters
 
             except:
                 print(usage_string_ck_wav_writer) 
@@ -51,7 +60,7 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
 
             finally:
 
-                if not all([song_duration, wav_name]):
+                if not all([song_duration, wav_name, max_amp]):
                     return
 
                 # compile commands for subprocess.
@@ -59,7 +68,7 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
                 file_name = os.path.basename(file_path)
                 cwd = os.path.dirname(file_path)
 
-                cc = ["wav_writer.ck", str(song_duration), wav_name]
+                cc = ["wav_writer_wgain.ck", str(song_duration), wav_name, str(max_amp)]
                 record_commands = ":".join(cc)
                 chuck_init_wav = ["chuck", file_name, record_commands, "-s"]
                 print("\nsending:")
