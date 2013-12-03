@@ -155,5 +155,5 @@ Probably many, but we are aware of these:
 [8]: http://www.coursera.org/user/i/6591636f6ce50babb61bb547c721fac4    "Sharov Anton at Coursera"
 [9]: http://github.com/nathanleiby    "Nathan Leiby on GitHub"
 [10]: http://schemawound.com    "Geoffroy Montel"
-[11]: http://tasmo.github.com/ChucK.tmbundle    "Download the original bundle here"  
-[12]: https://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
+[11]: http://github.com/tasmo   "tasmo on GitHub"  
+[12]: http://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
