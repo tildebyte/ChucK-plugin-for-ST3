@@ -1,0 +1,7 @@
+ChucK Completions, Utilities, and Build ALPHA
+Note that this plugin is not currently on a release schedule.
+Changes may happen on a *daily* basis.
+This means that Package Control will update this plugin *very* frequently.
+If you would like greater control than that:
+Uninstall now, and do a manual install by following the instructions at:
+http://github.com/tildebyte/ChucK-plugin-for-ST3
