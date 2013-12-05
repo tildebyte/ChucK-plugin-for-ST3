@@ -19,11 +19,15 @@
   },
   {
     "keys": ["ctrl+shift+w"], "command": "ck_wav_writer"
-  },  
+  },
   {
     "keys": ["ctrl+shift+]"], "command": "chuck_doc_search"
   },
   {
     "keys": ["ctrl+shift+["], "command": "iternotate"
   },
+  {
+    "keys": ["ctrl+alt+b"], "command": "build",
+    "args": {"variant": "Kill"}
+  }
 ]

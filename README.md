@@ -17,20 +17,20 @@ A Sublime Text 3 plugin for ChucK, featuring syntax highlighting, tab completion
 
 ## Usage
 
-Currently to get sounds out of Sublime Text 3 + ChucK we've set up a simple build script. 
-If you are new to SublimeText, the menu to look for is located in *Tools -> Build System*. 
+Currently to get sounds out of Sublime Text 3 + ChucK we've set up a simple build script.
+If you are new to SublimeText, the menu to look for is located in *Tools -> Build System*.
 If *automatic* is not ticked then tick it, or you can set it manually by selecting ChucK from this list. To hear some sounds:
 
 - Load a *.ck* file or start a new file and save it with a *.ck* extension first (to let Sublime know what kind of file it is).
 - Enter your code; notice the beautiful syntax highlighting, completions and hints.
-- Hit the shortcut for build (*⌘+B*, or *CTRL+B* by default). 
-- To stop ChucK, end the build command (See the shortcut listed in *Tools -> Cancel Build*. On OSX, *CTRL+C* should work. Windows has *CTRL+BREAK* listed as the shortcut, but it might not work with all keyboards).
+- Hit the shortcut for build (*⌘+B*, or *CTRL+B* by default).
+- To stop ChucK, end the build command (See the shortcut listed in *Tools -> Cancel Build*. On OSX, *CTRL+C* should work. Windows has *CTRL+BREAK* listed as the shortcut [1]).
 
 
 ## Features
 
 #### Build command
-- *Build* and *Cancel Build* are implemented. This means you write code, hit the *⌘+B* / *ctrl+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
+- *Build*, *Cancel Build*, and *Kill* [1] are implemented. This means you write code, hit the *⌘+B* / *CTRL+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* (*CTRL+C* / *CTRL+BREAK*)  will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
 
 - Goto error (bound to *F4*). When you encounter an error, if ChucK was able to provide the line on which the error occured, the error information will be printed in the ST status line. Hitting *F4* will navigate the Sublime editor to that line and file (and subsequent lines, if any).
 
@@ -43,10 +43,10 @@ We've included many objects and methods which appear in the ChucK language. This
 #### Snippets.
 Some short, commonly used, syntactical structures (e.g. *while* loops) can be inserted with only a few keystrokes.
 
-- Typing `pr` and hitting enter will insert `<<<  >>>;` 
+- Typing `pr` and hitting enter will insert `<<<  >>>;`
 - Typing `arr` and enter will insert an array declaration; first enter the type, then hit *TAB*, then fill in the array name. This will produce `@=> <int,string,..etc> array_name[]`.
 - [More examples] [4].
- 
+
 #### Doc Search
 *chuck_doc_search.py*: searches the ChucK online help for the currently selected word. It takes:
  - Any UGen _name_.
@@ -73,14 +73,14 @@ for(0 => int i; i<num_times; i++){
     i;
 }
 
-// i..iterable[  or  i..iterable[]  
+// i..iterable[  or  i..iterable[]
 for(0 => int i; i<iterable.cap(); i++){
     iterable[i];
 }
 ```
 
 #### Wav Writer
-Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *chuck_wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example: 
+Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *chuck_wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example:
 
 ```c
 SinOsc d => dac;
@@ -98,7 +98,7 @@ The [issue tracker] [5] is a good place to look if you encounter a bug, or to ju
 
 
 #### *Tools > ChucK* sub menu:
-The menu is implemented but currently it is a stub, so avoid using it for now. There are 
+The menu is implemented but currently it is a stub, so avoid using it for now. There are
 renovations going on in the code for those menu items. We have no clear timeframe for this todo, it may even happen that the ChucK menu is ditched in favour of the REPL as a console, or inline console comment-commands as implemented in *chuck_wav_writer.py*.
 
 The list:
@@ -117,10 +117,10 @@ The default keybinds for *chuck_doc_search* and *iternotate* conflict with *Fold
 ## Known bugs
 Probably many, but we are aware of these:
 
-- While we stil rely on the build script to play chuck files, if you `Build` a shred while another shred is playing, you cannot stop the first shred anymore.  
+- While we stil rely on the build script to play chuck files, if you `Build` a shred while another shred is playing, you cannot stop the first shred anymore.
   - Workaround: Open Sublime's Python console and enter `import subprocess` then `subprocess.call(["chuck", "--kill"])`. This kills it *with fire*.
 - using `.cap()` will render the rest of the line in white.
-- `//` comments will sometimes cause weird highlighting in the comment itself.  
+- `//` comments will sometimes cause weird highlighting in the comment itself.
 - Doc Search currently behaves differently under firefox and webkit (chrome, safari..etc). This has to do with these browsers not implementing `url#section` the same way. This issue is compounded by the ChucK docs using inconsistent rules for named ids. More about this topic [here] [12]
 
 
@@ -145,6 +145,8 @@ Probably many, but we are aware of these:
 - Petros Lafazanidis
 - Santiago Braida
 
+[1] *CTRL+BREAK* doesn't seem to work with all keyboards. We've recently added a new build command, *Kill*, which works reliably on Windows using *CTRL+ALT+B* (this is untested on other OSs). It will kill the most-recently launched chuck instance, and then the next most-recent, etc. Due to an ST bug, or perhaps ignorance on our part, it does not show up in the *Tools* menu.
+
 [1]: http://github.com/geoffroymontel/supercollider-package-for-sublime-text    "Supercollider ST2 plugin home"
 [2]: http://www.sublimetext.com/3   "Sublime Text 3 home"
 [3]: http://chuck.cs.princeton.edu    "ChucK home"
@@ -155,5 +157,5 @@ Probably many, but we are aware of these:
 [8]: http://www.coursera.org/user/i/6591636f6ce50babb61bb547c721fac4    "Sharov Anton at Coursera"
 [9]: http://github.com/nathanleiby    "Nathan Leiby on GitHub"
 [10]: http://schemawound.com    "Geoffroy Montel"
-[11]: http://github.com/tasmo   "tasmo on GitHub"  
+[11]: http://github.com/tasmo   "tasmo on GitHub"
 [12]: http://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
