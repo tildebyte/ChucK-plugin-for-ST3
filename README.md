@@ -24,13 +24,13 @@ If *automatic* is not ticked then tick it, or you can set it manually by selecti
 - Load a *.ck* file or start a new file and save it with a *.ck* extension first (to let Sublime know what kind of file it is).
 - Enter your code; notice the beautiful syntax highlighting, completions and hints.
 - Hit the shortcut for build (*⌘+B*, or *CTRL+B* by default).
-- To stop ChucK, end the build command (See the shortcut listed in *Tools -> Cancel Build*. On OSX, *CTRL+C* should work. Windows has *CTRL+BREAK* listed as the shortcut [1]).
+- To stop ChucK, end the build command (See the shortcut listed in *Tools -> Cancel Build*. On OSX, *CTRL+C* should work. Windows has *CTRL+BREAK* listed as the shortcut \[1\]).
 
 
 ## Features
 
 #### Build command
-- *Build*, *Cancel Build*, and *Kill* [1] are implemented. This means you write code, hit the *⌘+B* / *CTRL+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* (*CTRL+C* / *CTRL+BREAK*)  will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
+- *Build*, *Cancel Build*, and *Kill* \[1\] are implemented. This means you write code, hit the *⌘+B* / *CTRL+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* (*CTRL+C* / *CTRL+BREAK*)  will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
 
 - Goto error (bound to *F4*). When you encounter an error, if ChucK was able to provide the line on which the error occured, the error information will be printed in the ST status line. Hitting *F4* will navigate the Sublime editor to that line and file (and subsequent lines, if any).
 
@@ -145,7 +145,7 @@ Probably many, but we are aware of these:
 - Petros Lafazanidis
 - Santiago Braida
 
-[1] *CTRL+BREAK* doesn't seem to work with all keyboards. We've recently added a new build command, *Kill*, which works reliably on Windows using *CTRL+ALT+B* (this is untested on other OSs). It will kill the most-recently launched chuck instance, and then the next most-recent, etc. Due to an ST bug, or perhaps ignorance on our part, it does not show up in the *Tools* menu.
+\[1\] *CTRL+BREAK* doesn't seem to work with all keyboards. We've recently added a new build command, *Kill*, which works reliably on Windows using *CTRL+ALT+B* (this is untested on other OSs). It will kill the most-recently launched chuck instance, and then the next most-recent, etc. Due to an ST bug, or perhaps ignorance on our part, it does not show up in the *Tools* menu.
 
 [1]: http://github.com/geoffroymontel/supercollider-package-for-sublime-text    "Supercollider ST2 plugin home"
 [2]: http://www.sublimetext.com/3   "Sublime Text 3 home"
