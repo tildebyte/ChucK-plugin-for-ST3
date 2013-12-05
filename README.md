@@ -80,6 +80,9 @@ for(0 => int i; i<iterable.cap(); i++){
 ```
 
 #### Wav Writer
+
+default shortcut: "ctrl+shift+w"  
+  
 Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *chuck_wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example:
 
 ```c
