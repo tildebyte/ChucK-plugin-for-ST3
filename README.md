@@ -86,6 +86,11 @@ Writes the current ChucK file as stereo wav to disk. We use the concept of an *i
 SinOsc d => dac;
 20::second => now;  // %> 20:demo_sound
 ```
+or, add a gain value ( range 0.0 and upwards. The default, when omitted, is 1.0
+```c
+SinOsc d => dac;
+20::second => now;  // %> 20:demo_sound:0.67
+```
 
 If the cursor caret is on the line with the comment using the `%>` token it will try to parse what is after it. "20" means you want that many seconds, *demo_sound* is the name of the output stereo wav you will record.
   - This feature uses a threaded sub process; it allows you to use Sublime while ChucK writes the wav to disk.
