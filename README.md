@@ -86,7 +86,7 @@ Writes the current ChucK file as stereo wav to disk. We use the concept of an *i
 SinOsc d => dac;
 20::second => now;  // %> 20:demo_sound
 ```
-or, add a gain value ( range 0.0 and upwards. The default, when omitted, is 1.0
+or, add a gain value. Range 0.0 and upwards. The default, when omitted, is 1.0
 ```c
 SinOsc d => dac;
 20::second => now;  // %> 20:demo_sound:0.67
