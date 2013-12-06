@@ -99,6 +99,11 @@ If the cursor caret is on the line with the comment using the `%>` token it will
   - This feature uses a threaded sub process; it allows you to use Sublime while ChucK writes the wav to disk.
   - Currently, you need a copy of [wav_writer_wgain.ck] [13] in the same directory as the *.ck* file you wish to record.
 
+#### Context Menu additions  
+
+If you have a line like `Machine.add(me.dir() + "/kicks/ck")`, and want to see that file, simply place the key caret on that line and right-click to get the context menu. The context menu will have the option to "Open file under cursor..",  this will parse the line and try to open the file in the current sublime text view.
+
+
 ## TODO
 
 #### Issue Tracker
