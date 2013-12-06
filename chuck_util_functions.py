@@ -97,7 +97,7 @@ class ChuckOpener(sublime_plugin.TextCommand):
             found_types = [(s in line_under_cursor) for s in sample_types]
 
             for idx, sample_type in enumerate(found_types):
-                # stop at the first, and set this line off to the open_wav_file function
+                # stop at the first, send this line off to the open_wav_file function
                 if sample_type:
                     open_wav_file(line_under_cursor, path, sample_types[idx])
 
