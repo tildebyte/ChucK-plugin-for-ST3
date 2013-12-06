@@ -86,7 +86,7 @@ class ChuckOpener(sublime_plugin.TextCommand):
             else:
                 open_chuck_file(line_under_cursor, path)
 
-        # purely convenience here, stick with how miniAudicle excepts this stuff
+        # purely convenience here, stick with how miniAudicle expects this stuff
         # or you'll run into problems that miniAudicle will not play files because
         # it can't find paths.. it's a bit silly but hey that's the fun.
         # this expects something like :     
