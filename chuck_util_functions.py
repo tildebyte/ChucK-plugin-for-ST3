@@ -30,7 +30,7 @@ def open_wav_file(line_under_cursor, path, wtype):
         pattern = "\"(.*" + wtype + ")\""
         m = re.search(pattern, line_under_cursor)
         file_found = m.groups(0)[0]
-        #full_path_to_file = os.path.join(path, file_found)
+
         sublime.status_message(file_found)
         path_strings = [s for s in file_found.split("/") if s]
         print(path, path_strings)
