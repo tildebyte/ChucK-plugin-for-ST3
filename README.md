@@ -29,7 +29,7 @@ If *automatic* is not ticked then tick it, or you can set it manually by selecti
 
 ## Features
 
-### Summary of features
+### Summary
 
 - Build / Kill build / Goto error
 - Syntax Highlighting
