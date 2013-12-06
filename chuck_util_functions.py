@@ -38,7 +38,8 @@ def open_wav_file(line_under_cursor, path, wtype):
         dest_path = os.sep.join(path.split(os.sep)[:levels])
         full_wav_path = os.path.join(dest_path,*path_strings)
 
-        wave_editor = "C:/Program Files/Audacity/audacity.exe"
+        settings = sublime.load_settings("ChucK.sublime-settings")
+        wave_editor = settings.get("wave_editor")
         subprocess.call("{0} {1}".format(wave_editor, full_wav_path))
 
     except:
@@ -87,20 +88,18 @@ class ChuckOpener(sublime_plugin.TextCommand):
                 open_chuck_file(line_under_cursor, path)
 
         # purely convenience here, stick with how miniAudicle expects this stuff
-        # or you'll run into problems that miniAudicle will not play files because
-        # it can't find paths.. it's a bit silly but hey that's the fun.
-        # this expects something like :     
-        #       me.dir(-1) + "/audio/hihat_02.wav" => string p;
+        # or you run into problems and it won't find files.  
+        # normal form:   me.dir(-1) + "/audio/hihat_02.wav" => string p;  
 
         if "me.dir(" in line_under_cursor:
             sample_types = [".wav", ".aiff", ".mat"]  # extend if needed
             found_types = [(s in line_under_cursor) for s in sample_types]
 
             for idx, sample_type in enumerate(found_types):
-                # stop at the first, send this line off to the open_wav_file function
+                # stop at the first, and send this line off to the open_wav_file
+                # function
                 if sample_type:
                     open_wav_file(line_under_cursor, path, sample_types[idx])
-
 
     def enabled(self):
         view = self.view
