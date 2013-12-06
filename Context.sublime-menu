@@ -1,0 +1,8 @@
+[
+   { "caption": "-" },
+   {
+        "caption": "Open file under cursor..",
+        "command": "chuck_opener"
+   },
+   { "caption": "-" }
+]
