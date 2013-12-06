@@ -6,5 +6,7 @@
     "ck_exe": "chuck",
 
     // URL of UGen page
-    "ckcode_ugen_url": "http://chuck.cs.princeton.edu/doc/program/ugen_full.html#"
+    "ckcode_ugen_url": "http://chuck.cs.princeton.edu/doc/program/ugen_full.html#",
+    
+    "wave_editor": "C:/Program Files/Audacity/audacity.exe"
 }
