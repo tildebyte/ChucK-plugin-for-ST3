@@ -102,12 +102,6 @@ class ChuckOpener(sublime_plugin.TextCommand):
                     open_wav_file(line_under_cursor, path, sample_types[idx])
 
 
-
-                
-
-
-
-
     def enabled(self):
         view = self.view
         selections = view.sel()
