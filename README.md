@@ -29,6 +29,17 @@ If *automatic* is not ticked then tick it, or you can set it manually by selecti
 
 ## Features
 
+### Summary of features
+
+- Build / Kill build / Goto error
+- Syntax Highlighting
+- Completions & Snippets, auto complete and instant access to common code blocks 
+- Document Search, search docs for selected word
+- Shorthand for-loop rewriter called "iternotate".
+- Wav writer, writes current `.ck` to wav
+- Open File under cursor, if it's a `.wav` it can open your sound editor, if it's a `.ck` it opens insitu.
+
+
 #### Build command
 - *Build*, *Cancel Build*, and *Kill* \[1\] are implemented. This means you write code, hit the *⌘+B* / *CTRL+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* (*CTRL+C* / *CTRL+BREAK*)  will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
 
