@@ -29,5 +29,8 @@
   {
     "keys": ["ctrl+alt+b"], "command": "build",
     "args": {"variant": "Kill"}
+  },
+  { 
+    "keys": ["ctrl+shift+o"], "command": "chuck_opener" 
   }
 ]
