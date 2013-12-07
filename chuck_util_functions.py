@@ -24,6 +24,16 @@ def get_levels(line_under_cursor):
     return levels
 
 def open_file(line_under_cursor, path, levels, file_type):
+    """
+    accepts:  me.dir()  , me.dir(0),  me.dir(-1) , me.dir(-n)
+    
+    opens a sound file if the following is on a line:
+        me.dir(-1) + "/audio/hihat_02.wav";
+
+    opens a .ck file if it finds
+        Machine.add(me.dir() + "/some_path.ck)";
+    """
+
     try:
         pattern = "\"(.*" + file_type + ")\""
         m = re.search(pattern, line_under_cursor)
@@ -69,8 +79,6 @@ def check_file(line_under_cursor, path):
     # is it a .ck? 
     if ".ck" in line_under_cursor:
         open_file(line_under_cursor, path, levels, ".ck")
-
-
 
 
 class ChuckOpener(sublime_plugin.TextCommand):
