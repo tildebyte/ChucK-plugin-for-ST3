@@ -1,0 +1,6 @@
+<snippet>
+    <description>adds classes...</description>
+    <content><![CDATA[Machine.add(me.dir() + "/${1}.ck"); ]]></content>
+    <tabTrigger>machine add</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
