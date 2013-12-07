@@ -35,7 +35,7 @@ def open_file(line_under_cursor, path, levels, file_type):
     """
 
     try:
-        pattern = "\"(.*" + file_type + ")\""
+        pattern = "\"(.*" + file_type + ")\"?"
         m = re.search(pattern, line_under_cursor)
         file_found = m.groups(0)[0]
         full_path = get_full_path_to_file(levels, file_found, path)
@@ -66,19 +66,16 @@ def check_file(line_under_cursor, path):
         return 
 
     # is it a sound?
-    sample_types = [".wav", ".aiff", ".mat"]  # extend if needed
-    found_types = [(s in line_under_cursor) for s in sample_types]
+    file_types = [".wav", ".aiff", ".mat", ".ck"]  # extend if needed
+    found_types = [(s in line_under_cursor) for s in file_types]
 
     # enters here if the filetype is recognized.
     if any(found_types):
-        for i, sample_type in enumerate(found_types):
-            if sample_type:
-                open_file(line_under_cursor, path, levels, sample_types[i])
+        for i, file_type in enumerate(found_types):
+            if file_type:
+                open_file(line_under_cursor, path, levels, file_types[i])
         return
 
-    # is it a .ck? 
-    if ".ck" in line_under_cursor:
-        open_file(line_under_cursor, path, levels, ".ck")
 
 
 class ChuckOpener(sublime_plugin.TextCommand):
