@@ -30,7 +30,11 @@
     "keys": ["ctrl+alt+b"], "command": "build",
     "args": {"variant": "Kill"}
   },
-  { 
-    "keys": ["ctrl+shift+o"], "command": "chuck_opener" 
+  {
+    "keys": ["shift+alt+b"], "command": "build",
+    "args": {"variant": "Init"}
+  },
+  {
+    "keys": ["ctrl+shift+o"], "command": "chuck_opener"
   }
 ]
