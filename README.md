@@ -112,7 +112,9 @@ If the cursor caret is on the line with the comment using the `%>` token it will
 
 #### Context Menu additions  
 
-If you have a line like `Machine.add(me.dir() + "/kicks/ck")`, and want to see that file, simply place the key caret on that line and right-click to get the context menu. The context menu will have the option to "Open file under cursor..",  this will parse the line and try to open the file in the current sublime text view.
+- _*Open file under cursor*_: If you have a line like `Machine.add(me.dir() + "/kicks.ck")`, and want to see that file, simply place the key caret on that line and right-click to get the context menu. Choose "Open file under cursor..",  to  open the file in the current sublime text view. If you have a soundfile referenced with `me.dir() + "/sound.wav"`  Sublime will attempt to open the `.wav` in your configured sound editor.
+- _*Archive project*_: will archive the current folder and subfolders as an uncompressed zip, it will automatically add a time postfix to the filename.  
+
 
 
 ## TODO
