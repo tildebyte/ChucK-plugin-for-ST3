@@ -17,7 +17,6 @@ def current_directory(path):
     os.chdir(path)
     zipname = current_folder_name + postfix() + ".zip"
 
-    # at the moment this creates an empty folder
     with zipfile.ZipFile(zipname, "w") as archive:
         for dirname, subdirs, files in os.walk(os.path.relpath(path)):
             if not dirname == ".":
