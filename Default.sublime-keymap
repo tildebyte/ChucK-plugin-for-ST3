@@ -1,23 +1,5 @@
 [
   {
-    "keys": ["alt+k", "l"], "command": "ck_loop_vm"
-  },
-  {
-    "keys": ["alt+k", "."], "command": "ck_kill_vm"
-  },
-  {
-    "keys": ["alt+k", "a"], "command": "ck_add_shred"
-  },
-  {
-    "keys": ["alt+k", "r"], "command": "ck_remove_shred"
-  },
-  {
-    "keys": ["alt+k", "p"], "command": "ck_replace_shred"
-  },
-  {
-    "keys": ["alt+k", "c"], "command": "ck_clear_vm"
-  },
-  {
     "keys": ["ctrl+shift+w"], "command": "ck_wav_writer"
   },
   {
@@ -27,11 +9,14 @@
     "keys": ["ctrl+shift+["], "command": "iternotate"
   },
   {
-    "keys": ["ctrl+alt+b"], "command": "build",
+    "keys": ["ctrl+enter"], "command": "build",
+  },
+  {
+    "keys": ["ctrl+alt+enter"], "command": "build",
     "args": {"variant": "Kill"}
   },
   {
-    "keys": ["shift+alt+b"], "command": "build",
+    "keys": ["ctrl+shift+enter"], "command": "build",
     "args": {"variant": "Init"}
   },
   {
