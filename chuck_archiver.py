@@ -8,7 +8,7 @@ def postfix():
     # as a configurable string
     return time.strftime("_%Y_%m_%d_%H-%M")
 
-def current_directory(path):
+def zip_current_directory(path):
     current_folder_name = path.split(os.sep)[-1]
     full_path = os.path.abspath(path)
 
@@ -36,5 +36,5 @@ class DirZipper(sublime_plugin.TextCommand):
         view = self.view
         file_path = view.file_name()
         path = os.path.dirname(file_path)
-        current_directory(path)
+        zip_current_directory(path)
 
