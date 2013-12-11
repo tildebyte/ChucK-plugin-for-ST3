@@ -4,9 +4,13 @@ import zipfile
 import time
 
 def postfix():
-    # can be set in sublime settings, would be neat to offer this
-    # as a configurable string
-    return time.strftime("_%Y_%m_%d_%H-%M")
+    """
+    the default is:  "archive_postfix": "_%Y_%m_%d_%H-%M"
+    see python docs for time.strftime.
+    """
+    settings = sublime.load_settings("ChucK.sublime-settings")
+    postfix_re = settings.get("archive_postfix")
+    return time.strftime(postfix_re)
 
 def zip_current_directory(path):
     current_folder_name = path.split(os.sep)[-1]
@@ -23,7 +27,7 @@ def zip_current_directory(path):
                 archive.write(dirname)
 
             for filename in files:
-                if not filename == zipname:
+                if not filename.startswith(current_folder_name):
                     archive.write(os.path.join(dirname, filename))
 
     # this might be overkill, i don't know.
