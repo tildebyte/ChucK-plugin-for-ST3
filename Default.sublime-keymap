@@ -17,7 +17,7 @@
   },
   {
     "keys": ["ctrl+shift+enter"], "command": "build",
-    "args": {"variant": "Init"}
+    "args": {"variant": "Run"}
   },
   {
     "keys": ["ctrl+shift+o"], "command": "chuck_opener"

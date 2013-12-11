@@ -1,0 +1,7 @@
+{
+    // ChucK command name
+    "ck_exe": "chuck",
+
+    // URL of UGen page
+    "ckcode_ugen_url": "http://chuck.cs.princeton.edu/doc/program/ugen_full.html#",
+}

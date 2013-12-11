@@ -2,11 +2,5 @@
     // forward slashes instead of double backslashes, and some users may not have (x86)
     "ck_dir": "",
 
-    // ChucK command name
-    "ck_exe": "chuck",
-
-    // URL of UGen page
-    "ckcode_ugen_url": "http://chuck.cs.princeton.edu/doc/program/ugen_full.html#",
-
     "wave_editor": ""
 }

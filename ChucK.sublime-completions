@@ -88,6 +88,8 @@
                 // keywords
                 "break",
                 "continue",
+                "true",
+                "false",
                 // stdout to console, with and without newline
                 "chout <= \" \";",
                 "chout <= IO.newline();",

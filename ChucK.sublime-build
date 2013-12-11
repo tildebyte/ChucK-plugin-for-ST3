@@ -9,7 +9,7 @@
           "name": "Kill"
         },
         { "cmd": ["chuck", "--verbose:2", "initialize.ck"],
-          "name": "Init",
+          "name": "Run",
           "working_dir": "$file_path",
           "file_regex": "^\\[(.*)\\]:line\\(([0-9]+)\\).*: (.*)$"
         }

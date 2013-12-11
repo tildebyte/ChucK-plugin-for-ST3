@@ -2,12 +2,6 @@
     // If MiniAudicle is in e.g. your Applications folder...
     "ck_dir": "/Applications/miniAudicle.app/Contents/Resources",
 
-    // ChucK command name
-    "ck_exe": "chuck",
-
-    // URL of UGen page
-    "ckcode_ugen_url": "http://chuck.cs.princeton.edu/doc/program/ugen_full.html#",
-
     // If you have e.g. Audacity in your Applications folder... Similar settings
     // should work for other editors.
     "wave_editor": "/Applications/Audacity.app/Contents/MacOS/audacity"
