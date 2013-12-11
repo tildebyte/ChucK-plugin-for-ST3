@@ -4,5 +4,9 @@
         "caption": "Open file under cursor..",
         "command": "chuck_opener"
    },
+   {
+        "caption": "Archive Project..",
+        "command": "dir_zipper"
+   },  
    { "caption": "-" }
 ]
