@@ -12,7 +12,7 @@ A Sublime Text 3 plugin for ChucK, featuring syntax highlighting, tab completion
  1. Open Sublime Text 3.
  2. Go to Preferences/Browse Packages.
  3. Unpack the archive into the Packagers folder which should appear.
- 4. Change ChucK path in ChucK.sublime-settings.
+ 4. Change ChucK path in ChucK.sublime-settings specific to your platform.
  5. Restart Sublime Text 3.
 
 ## Usage
@@ -33,7 +33,7 @@ If *automatic* is not ticked then tick it, or you can set it manually by selecti
 
 - Build / Kill build / Goto error
 - Syntax Highlighting
-- Completions & Snippets, auto complete and instant access to common code blocks 
+- Completions & Snippets, auto complete and instant access to common code blocks
 - Document Search, search docs for selected word
 - Shorthand for-loop rewriter called "iternotate".
 - Wav writer, writes current `.ck` to wav
@@ -92,8 +92,8 @@ for(0 => int i; i<iterable.cap(); i++){
 
 #### Wav Writer
 
-default shortcut: "ctrl+shift+w"  
-  
+default shortcut: "ctrl+shift+w"
+
 Writes the current ChucK file as stereo wav to disk. We use the concept of an *inline console* to tell *chuck_wav_writer.py* what to do. An inline console is a specific set of instructions in the form of a comment. For example:
 
 ```c
@@ -110,7 +110,7 @@ If the cursor caret is on the line with the comment using the `%>` token it will
   - This feature uses a threaded sub process; it allows you to use Sublime while ChucK writes the wav to disk.
   - Currently, you need a copy of [wav_writer_wgain.ck] [13] in the same directory as the *.ck* file you wish to record.
 
-#### Context Menu additions  
+#### Context Menu additions
 
 If you have a line like `Machine.add(me.dir() + "/kicks/ck")`, and want to see that file, simply place the key caret on that line and right-click to get the context menu. The context menu will have the option to "Open file under cursor..",  this will parse the line and try to open the file in the current sublime text view.
 
@@ -158,8 +158,9 @@ Probably many, but we are aware of these:
 ## Thanks
 
 - [Geoffroy Montel] [10] for the ST2 Supercollider plugin.
-- Sharov Anton (initial Build command)
+- Sharov Anton (initial Build command).
 - Nathan Leiby (syntax highlighter conversion of textmate files by [tasmo] [11]).
+- [Brian Harrington] [14] (Pointed out the need for platform-specific settings).
 
 
 #### Testing:
@@ -182,5 +183,6 @@ Probably many, but we are aware of these:
 [9]: http://github.com/nathanleiby    "Nathan Leiby on GitHub"
 [10]: http://schemawound.com    "Geoffroy Montel"
 [11]: http://github.com/tasmo   "tasmo on GitHub"
-[12]: http://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"    
+[12]: http://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
 [13]: https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/wav_writer_wgain.ck     "wave writer addon"
+[14]: https://github.com/bdharrington7   "Brian Harrington on GitHub"
