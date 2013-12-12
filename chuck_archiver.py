@@ -3,14 +3,15 @@ import os
 import zipfile
 import time
 
-def postfix():
+def get_settings():
     """
     the default is:  "archive_postfix": "_%Y_%m_%d_%H-%M"
     see python docs for time.strftime.
     """
     settings = sublime.load_settings("ChucK.sublime-settings")
     postfix_re = settings.get("archive_postfix")
-    return time.strftime(postfix_re)
+    ignore_list = settings.get("archive_ignore_list")
+    return time.strftime(postfix_re), ignore_list
 
 def zip_current_directory(path):
     current_folder_name = path.split(os.sep)[-1]
@@ -19,10 +20,17 @@ def zip_current_directory(path):
     # store os.cwd , then switch to path of directory 
     old_dir = os.getcwd()
     os.chdir(path)
-    zipname = current_folder_name + postfix() + ".zip"
 
+    postfix, ignore_list = get_settings()
+
+    zipname = current_folder_name + postfix + ".zip"
     with zipfile.ZipFile(zipname, "w") as archive:
         for dirname, subdirs, files in os.walk(os.path.relpath(path)):
+            
+            # we can skip any directories in the List
+            if any(token in dirname for token in ignore_list):
+                continue
+
             if not dirname == ".":
                 archive.write(dirname)
 
