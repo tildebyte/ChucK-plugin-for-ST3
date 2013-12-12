@@ -84,8 +84,6 @@ def probe_chuck():
         k = subprocess.Popen(["chuck", "--probe"], stdout=PIPE, stderr=PIPE)
         out, err = k.communicate()
 
-        midi_info = False
-
         info = "".join(err.decode().split('\r\n')[-2:])
         for i in info.split("[chuck]:"):
             print(i)
