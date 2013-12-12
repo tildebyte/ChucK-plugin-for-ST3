@@ -1,7 +1,8 @@
 import sublime, sublime_plugin
-import subprocess
 import os
 import re
+import subprocess
+from subprocess import PIPE
 
 def get_full_path_to_file(levels, file_found, path):
     path_strings = [s for s in file_found.split("/") if s]
@@ -77,6 +78,20 @@ def check_file(line_under_cursor, path):
         return
 
 
+def probe_chuck():
+
+    try:
+        k = subprocess.Popen(["chuck", "--probe"], stdout=PIPE, stderr=PIPE)
+        out, err = k.communicate()
+
+        midi_info = False
+
+        info = "".join(err.decode().split('\r\n')[-2:])
+        for i in info.split("[chuck]:"):
+            print(i)
+    except:
+        print("this may be difficult to debug, ..please let me (zeffii) know")
+
 
 class ChuckOpener(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -89,6 +104,10 @@ class ChuckOpener(sublime_plugin.TextCommand):
 
         file_path = view.file_name()
         path = os.path.dirname(file_path)
+
+        if "MidiIn" in line_under_cursor:
+            probe_chuck()
+            return
 
         if not "me.dir(" in line_under_cursor:
             sublime.status_message("line must contain some form of me.dir()")
