@@ -84,7 +84,7 @@ def probe_chuck():
         k = subprocess.Popen(["chuck", "--probe"], stdout=PIPE, stderr=PIPE)
         out, err = k.communicate()
 
-        info = "".join(err.decode().split('\r\n')[-2:])
+        info = "".join(err.decode().split('\r\n')[-1:])
         for i in info.split("[chuck]:"):
             print(i)
     except:
