@@ -6,5 +6,9 @@
     "ckcode_ugen_url": "http://chuck.cs.princeton.edu/doc/program/ugen_full.html#",
     
     // used for the time-stamp on archived files.
-    "archive_postfix": "_%Y_%m_%d_%H-%M"
+    "archive_postfix": "_%Y_%m_%d_%H-%M",
+    
+    // names of folders to exclude from the archive, 
+    // it can be empty [] to inlcude all
+    "archive_ignore_list": ["ignore", "old"]
 }
