@@ -11,7 +11,7 @@ A Sublime Text 3 plugin for ChucK, featuring syntax highlighting, tab completion
 
  1. Open Sublime Text 3.
  2. Go to Preferences/Browse Packages.
- 3. Unpack the archive into the Packagers folder which should appear.
+ 3. Unpack the [archive](https://github.com/tildebyte/ChucK-plugin-for-ST3/archive/master.zip) into the Packagers folder which should appear.
  4. Change ChucK path in ChucK.sublime-settings specific to your platform.
  5. Restart Sublime Text 3.
 
