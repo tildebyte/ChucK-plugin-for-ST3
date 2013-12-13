@@ -16,5 +16,5 @@
     // optional!
     // use forward slashes, works on all OSs, (i think ....)
     // it must end with forward slash to indicate that the path is a folder.
-    // "archive_backup_dir" : "C:/Users/usernamea/folderx/whatever/"
+    "archive_backup_dir" : "C:/Users/usernamea/folderx/whatever/"
 }
