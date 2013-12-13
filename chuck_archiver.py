@@ -2,16 +2,20 @@ import sublime, sublime_plugin
 import os
 import zipfile
 import time
+import shutil
 
 def get_settings():
-    """
-    the default is:  "archive_postfix": "_%Y_%m_%d_%H-%M"
-    see python docs for time.strftime.
-    """
     settings = sublime.load_settings("ChucK.sublime-settings")
-    postfix_re = settings.get("archive_postfix")
-    ignore_list = settings.get("archive_ignore_list")
-    return time.strftime(postfix_re), ignore_list
+    archiver_settings = []
+
+    # alias for readability
+    ap = archiver_settings.append
+    
+    ap(time.strftime(settings.get("archive_postfix")))
+    ap(settings.get("archive_ignore_list"))
+    ap(settings.get("archive_backup_dir"))
+
+    return archiver_settings
 
 def zip_current_directory(path):
     current_folder_name = path.split(os.sep)[-1]
@@ -21,7 +25,7 @@ def zip_current_directory(path):
     old_dir = os.getcwd()
     os.chdir(path)
 
-    postfix, ignore_list = get_settings()
+    postfix, ignore_list, backup_dir = get_settings()
 
     zipname = current_folder_name + postfix + ".zip"
     with zipfile.ZipFile(zipname, "w") as archive:
@@ -37,6 +41,19 @@ def zip_current_directory(path):
             for filename in files:
                 if not filename.startswith(current_folder_name):
                     archive.write(os.path.join(dirname, filename))
+
+    # user may have backup_dir configured, any files saved 
+    # with ZipFile will be carbon copied to the directory 
+    # listed in sublime settings file
+    if os.path.exists(backup_dir):
+        print("directory exists!")
+        try:
+            shutil.copy(zipname, backup_dir)
+        except:
+            print("something went wrong. stay calm.")
+    else:
+        print("no backup directory set, or not recognized.")
+        print("check capitalization, relative paths and permissions")
 
     # this might be overkill, i don't know.
     os.chdir(old_dir) # revert back to python's original dir.
