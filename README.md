@@ -35,7 +35,7 @@ If *automatic* is not ticked then tick it, or you can set it manually by selecti
 - Syntax Highlighting
 - Completions & Snippets, auto complete and instant access to common code blocks
 - Document Search, search docs for selected word
-- Shorthand for-loop rewriter called "iternotate".
+- Shorthand for-loop rewriter called "iternotate" (never write a for-loop by hand again).
 - Wav writer, writes current `.ck` to wav
 - Open File under cursor, if it's a `.wav` it can open your sound editor, if it's a `.ck` it opens insitu.
 
