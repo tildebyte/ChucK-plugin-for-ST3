@@ -8,7 +8,13 @@
     // used for the time-stamp on archived files.
     "archive_postfix": "_%Y_%m_%d_%H-%M",
     
+    // optional!
     // names of folders to exclude from the archive, 
     // it can be empty [] to inlcude all
-    "archive_ignore_list": ["ignore", "old"]
+    "archive_ignore_list": ["ignore", "old"],
+    
+    // optional!
+    // use forward slashes, works on all OSs, (i think ....)
+    // it must end with forward slash to indicate that the path is a folder.
+    // "archive_backup_dir" : "C:/Users/usernamea/folderx/whatever/"
 }
