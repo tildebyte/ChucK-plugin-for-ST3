@@ -1,8 +1,10 @@
 import sublime, sublime_plugin
 import os
 import re
+import sys
 import subprocess
 from subprocess import PIPE
+from ChucK.chuck_python import send_multi_gist as gists
 
 def get_full_path_to_file(levels, file_found, path):
     path_strings = [s for s in file_found.split("/") if s]
@@ -26,13 +28,9 @@ def get_levels(line_under_cursor):
 
 def open_file(line_under_cursor, path, levels, file_type):
     """
-    accepts:  me.dir()  , me.dir(0),  me.dir(-1) , me.dir(-n)
-    
-    opens a sound file if the following is on a line:
-        me.dir(-1) + "/audio/hihat_02.wav";
-
-    opens a .ck file if it finds
-        Machine.add(me.dir() + "/some_path.ck)";
+    accepts:  me.dir()  , me.dir(0),  me.dir(-n)
+    :         me.dir(-1) + "/audio/hihat_02.wav";
+    :         Machine.add(me.dir() + "/some_path.ck)";
     """
 
     try:
@@ -84,11 +82,59 @@ def probe_chuck():
         k = subprocess.Popen(["chuck", "--probe"], stdout=PIPE, stderr=PIPE)
         out, err = k.communicate()
 
+        # finds the last section, generally midi information.
         info = "".join(err.decode().split('\r\n')[-1:])
         for i in info.split("[chuck]:"):
             print(i)
+
     except:
         print("this may be difficult to debug, ..please let me (zeffii) know")
+
+def attempt_upload(self, view):
+    file_path = view.file_name()
+    path = os.path.dirname(file_path)
+    current_folder_name = path.split(os.sep)[-1]
+    # full_path = os.path.abspath(path)
+
+    # a convenience function for checking if a file can 
+    # be omitted because it starts with the same name
+    same_name = lambda filename: filename.startswith(current_folder_name)
+
+    def text_based(filename):
+        gistable_files = ["ck", "txt", "md", "py", "csv"]
+        try:
+            if filename.split(".")[-1] in gistable_files:
+                print(filename.split(".")[-1])
+                return True
+        except:
+            print("bleeeeep! ignoring files without extensions..")
+        
+        return False
+
+    gist_files_dict = {}
+    
+    # no folders, just files. for now.
+    for dirname, subdirs, files in os.walk(os.path.relpath(path)):
+        
+        # only do this folder.
+        if not dirname.endswith(current_folder_name):
+            continue
+
+        for filename in files:
+            if not same_name(filename) and text_based(filename):
+                print("adding: ", filename)
+                this_file_path = os.path.join(dirname, filename)
+
+                # add filename as key and file content as sub_dict
+                with open(this_file_path) as current_file:
+                    file_content = "".join(current_file.readlines())
+                    print(file_content)
+                    gist_files_dict[filename] = {"content": file_content}
+
+        public = True
+        gists.upload(gist_files_dict, current_folder_name, public)
+
+    return
 
 
 class ChuckOpener(sublime_plugin.TextCommand):
@@ -105,6 +151,11 @@ class ChuckOpener(sublime_plugin.TextCommand):
 
         if "MidiIn" in line_under_cursor:
             probe_chuck()
+            return
+
+        # dispense with the %> prefix, it's a pain to type
+        if "// gist -m" in line_under_cursor:
+            attempt_upload(self, view)
             return
 
         if not "me.dir(" in line_under_cursor:
