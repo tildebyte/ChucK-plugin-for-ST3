@@ -41,7 +41,7 @@ If *automatic* is not ticked then tick it, or you can set it manually by selecti
 
 
 #### Build command
-- *Build*, *Cancel Build*, and *Kill* \[1\] are implemented. This means you write code, hit the *⌘+B* / *CTRL+B* shortcut, and Sublime will send the file to play to ChucK . *Cancel Build* (*CTRL+C* / *CTRL+BREAK*)  will end that ChucK instance. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
+- *Build*, *Run*, *Cancel Build*, and *Kill* are implemented. This means you write code, hit the *CTRL+ENTER* shortcut, and Sublime will send the file to play to ChucK . *Run* (*CTRL+SHIFT+ENTER*) will execute ChucK with an `innitialize.ck` *if* one is in the same directory as the file in the current tab - no switching back-and-forth. *Cancel Build* (*CTRL+C* / *CTRL+BREAK*)\[1\] will end that ChucK instance. *Kill* (CTRL+ALT+ENTER) will end the most-recently launched chuck instance, and then the next most-recent, etc. The great thing about keeping the code editing and the ChucK player separate is that if ChucK crashes it doesn't affect Sublime. This is unlike the miniAudicle; if ChucK crashes, most likely so will the miniAudicle.
 
 - Goto error (bound to *F4*). When you encounter an error, if ChucK was able to provide the line on which the error occured, the error information will be printed in the ST status line. Hitting *F4* will navigate the Sublime editor to that line and file (and subsequent lines, if any).
 
@@ -112,10 +112,10 @@ If the cursor caret is on the line with the comment using the `%>` token it will
 
 #### Context Menu additions
 
-- _*Open file under cursor*_:  
+- _*Open file under cursor*_:
   - If you have a line like `Machine.add(me.dir() + "/kicks.ck")`, and want to see that file, simply place the key caret on that line and right-click to get the context menu. Choose "Open file under cursor..", to open the file in the current Sublime Text view.
   - If you have a soundfile referenced with `me.dir() + "/sound.wav"` Sublime will attempt to open the `.wav` in your configured sound editor.
-- _*Archive project*_: will archive the current folder and subfolders as an uncompressed zip, it will automatically add a time postfix to the filename.  
+- _*Archive project*_: will archive the current folder and subfolders as an uncompressed zip, it will automatically add a time postfix to the filename.
 
 
 
@@ -174,7 +174,7 @@ Probably many, but we are aware of these:
 - Petros Lafazanidis
 - Santiago Braida
 
-\[1\] *CTRL+BREAK* doesn't seem to work with all keyboards. We've recently added a new build command, *Kill*, which works reliably on Windows using *CTRL+ALT+B* (this is untested on other OSs). It will kill the most-recently launched chuck instance, and then the next most-recent, etc. Due to an ST bug, or perhaps ignorance on our part, it does not show up in the *Tools* menu.
+\[1\] *CTRL+BREAK* doesn't seem to work with all keyboards.
 
 [1]: http://github.com/geoffroymontel/supercollider-package-for-sublime-text    "Supercollider ST2 plugin home"
 [2]: http://www.sublimetext.com/3   "Sublime Text 3 home"
