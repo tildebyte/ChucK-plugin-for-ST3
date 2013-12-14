@@ -16,7 +16,7 @@
     // optional!
     // use forward slashes, works on all OSs, (i think ....)
     // it must end with forward slash to indicate that the path is a folder.
-    "archive_backup_dir" : "C:/Users/usernamea/folderx/whatever/",
+    "archive_backup_dir" : "C:/Users/username/folderx/whatever/",
     
     // use all forward slashes, must end in fwslash and must be the name of the folder
     // containing the wav_writer_wgain.ck file.
