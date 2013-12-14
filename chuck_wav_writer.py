@@ -68,7 +68,16 @@ class Ck_wav_writer(sublime_plugin.TextCommand):
                 file_name = os.path.basename(file_path)
                 cwd = os.path.dirname(file_path)
 
-                cc = ["wav_writer_wgain.ck", str(song_duration), wav_name, str(max_amp)]
+                # rather than writing really ugly python code I will get the
+                # user to specify where they have the wav_writer_wgain.ck and 
+                # use sublime settings entry in stead. Conforming to how chuck 
+                # expects the file paths would lead to headaches and terrible 
+                # code. I refuse categorically.
+                settings = sublime.load_settings("ChucK.sublime-settings")
+                wave_writer_ck_path = settings.get("wav_writer_location") 
+                wave_writer_ck_path += "wav_writer_wgain.ck"
+
+                cc = [wave_writer_ck_path, str(song_duration), wav_name, str(max_amp)]
                 record_commands = ":".join(cc)
                 chuck_init_wav = ["chuck", file_name, record_commands, "-s"]
                 print("\nsending:")
