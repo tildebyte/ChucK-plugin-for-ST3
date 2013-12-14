@@ -108,7 +108,7 @@ SinOsc d => dac;
 
 If the cursor caret is on the line with the comment using the `%>` token it will try to parse what is after it. "20" means you want that many seconds, *demo_sound* is the name of the output stereo wav you will record.
   - This feature uses a threaded sub process; it allows you to use Sublime while ChucK writes the wav to disk.
-  - Currently, you need a copy of [wav_writer_wgain.ck] [13] in the same directory as the *.ck* file you wish to record.
+  - To use the wav writer you must add the path to [wav_writer_wgain.ck] [13] in [Chuck.sblime-settings] [15]
 
 #### Context Menu additions
 
@@ -190,3 +190,4 @@ Probably many, but we are aware of these:
 [12]: http://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
 [13]: https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/wav_writer_wgain.ck     "wave writer addon"
 [14]: https://github.com/bdharrington7   "Brian Harrington on GitHub"
+[15]: https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/ChucK.sublime-settings#L23   "wavewriter location"
