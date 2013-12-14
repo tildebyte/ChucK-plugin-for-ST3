@@ -108,7 +108,7 @@ SinOsc d => dac;
 
 If the cursor caret is on the line with the comment using the `%>` token it will try to parse what is after it. "20" means you want that many seconds, *demo_sound* is the name of the output stereo wav you will record.
   - This feature uses a threaded sub process; it allows you to use Sublime while ChucK writes the wav to disk.
-  - To use the wav writer you must add the path to [wav_writer_wgain.ck] [13] in [Chuck.sblime-settings] [15]
+  - To use the wav writer you must add the path to [wav_writer_wgain.ck] [13] in [Chuck.sublime-settings] [15]
 
 #### Context Menu additions
 
