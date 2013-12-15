@@ -150,7 +150,7 @@ Probably many, but we are aware of these:
 - using `.cap()` will render the rest of the line in white.
 - `//` comments will sometimes cause weird highlighting in the comment itself.
 - Doc Search currently behaves differently under firefox and webkit (chrome, safari..etc). This has to do with these browsers not implementing `url#section` the same way. This issue is compounded by the ChucK docs using inconsistent rules for named ids. More about this topic [here] [12]
-- Sublime's architecture uses a *plugin_host* process which may crash if you are printing out too much with too little time between printing intervals. For example printing two messages per 20 ms, for 30 second duration will bring *plugin_host* to its knees. When the *plugin_host* crashes ChucK will probably still keep playing until the piece ends or you terminate the ChucK process. If your piece doesn't have a built in end, then end Chuck from Task Manager or  Activity Monitorc, but you will need to restart Sublime to continue using the ChucK plugin. This is not something the authors of this ChucK plugin can fix. 
+- Sublime's architecture uses a *plugin_host* process which may crash if you are printing out too much with too little time between printing intervals. For example printing two messages per 20 ms, for 30 second duration will bring *plugin_host* to its knees. When the *plugin_host* crashes ChucK will probably still keep playing until the piece ends or you terminate the ChucK process. If your piece doesn't have a built in end, then end Chuck from Task Manager or  Activity Monitor. You will need to restart Sublime to continue using the ChucK plugin. This is not something the authors of this ChucK plugin can fix. 
 
 
 ## Authors
