@@ -1,9 +1,12 @@
 import json
 from urllib.request import urlopen
- 
+import webbrowser
+import time 
+
 def upload(gist_files_dict, project_name, public_switch):
   
-    gist_post_data = {  'description': project_name, 
+    pf = time.strftime("_%Y_%m_%d_%H-%M")
+    gist_post_data = {  'description': project_name+pf, 
                         'public': public_switch,
                         'files': gist_files_dict
                     }
@@ -15,7 +18,6 @@ def upload(gist_files_dict, project_name, public_switch):
         wjson = wfile.decode(found_json)
         gist_url = 'https://gist.github.com/' + wjson['id']
  
-        import webbrowser
         print(gist_url)
         webbrowser.open(gist_url)
         # or just copy url to clipboard?
