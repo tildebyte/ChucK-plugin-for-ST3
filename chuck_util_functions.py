@@ -91,6 +91,7 @@ def probe_chuck():
         print("this may be difficult to debug, ..please let me (zeffii) know")
 
 def attempt_upload(self, view):
+    print(os.getcwd())
     file_path = view.file_name()
     path = os.path.dirname(file_path)
     current_folder_name = path.split(os.sep)[-1]
@@ -128,11 +129,14 @@ def attempt_upload(self, view):
                 # add filename as key and file content as sub_dict
                 with open(this_file_path) as current_file:
                     file_content = "".join(current_file.readlines())
-                    print(file_content)
+                    # print(file_content)
                     gist_files_dict[filename] = {"content": file_content}
 
-        public = True
+    public = True
+    try:
         gists.upload(gist_files_dict, current_folder_name, public)
+    except:
+        print("failed gist upload...")
 
     return
 
