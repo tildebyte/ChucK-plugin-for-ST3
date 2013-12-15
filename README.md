@@ -190,4 +190,4 @@ Probably many, but we are aware of these:
 [12]: http://github.com/tildebyte/ChucK-plugin-for-ST3/issues/7    "UGen lookup seems to be case-sensitive"
 [13]: https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/wav_writer_wgain.ck     "wave writer addon"
 [14]: https://github.com/bdharrington7   "Brian Harrington on GitHub"
-[15]: https://github.com/tildebyte/ChucK-plugin-for-ST3/blob/master/ChucK.sublime-settings#L23   "wavewriter location"
+[15]: settings/ChucK.sublime-settings#L23   "wavewriter location"
