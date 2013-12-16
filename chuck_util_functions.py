@@ -4,7 +4,19 @@ import re
 import sys
 import subprocess
 from subprocess import PIPE
-from ChucK.chuck_python import send_multi_gist as gists
+
+from ChucK.chuck_python import multi_file_gist as gists
+ 
+def text_based(filename):
+    gistable_files = ["ck", "txt", "md", "py", "csv"]
+    try:
+        if filename.split(".")[-1] in gistable_files:
+            print(filename.split(".")[-1])
+            return True
+    except:
+        print("bleeeeep! ignoring files without extensions..")
+    
+    return False
 
 def get_full_path_to_file(levels, file_found, path):
     path_strings = [s for s in file_found.split("/") if s]
@@ -91,37 +103,28 @@ def probe_chuck():
         print("this may be difficult to debug, ..please let me (zeffii) know")
 
 def attempt_upload(self, view):
-    print(os.getcwd())
+
     file_path = view.file_name()
+
     path = os.path.dirname(file_path)
     current_folder_name = path.split(os.sep)[-1]
-    # full_path = os.path.abspath(path)
+    print("folder name:", current_folder_name)
 
     # a convenience function for checking if a file can 
     # be omitted because it starts with the same name
     same_name = lambda filename: filename.startswith(current_folder_name)
 
-    def text_based(filename):
-        gistable_files = ["ck", "txt", "md", "py", "csv"]
-        try:
-            if filename.split(".")[-1] in gistable_files:
-                print(filename.split(".")[-1])
-                return True
-        except:
-            print("bleeeeep! ignoring files without extensions..")
-        
-        return False
-
     gist_files_dict = {}
     
     # no folders, just files. for now.
-    for dirname, subdirs, files in os.walk(os.path.relpath(path)):
+    for dirname, subdirs, files in os.walk(path):
         
         # only do this folder.
         if not dirname.endswith(current_folder_name):
             continue
 
         for filename in files:
+            print("found this one anyway: ", filename)
             if not same_name(filename) and text_based(filename):
                 print("adding: ", filename)
                 this_file_path = os.path.join(dirname, filename)
@@ -132,8 +135,11 @@ def attempt_upload(self, view):
                     # print(file_content)
                     gist_files_dict[filename] = {"content": file_content}
 
+    print(len(gist_files_dict))
+
     public = True
     try:
+        print("keys", gist_files_dict.keys())
         gists.upload(gist_files_dict, current_folder_name, public)
     except:
         print("failed gist upload...")
