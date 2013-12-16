@@ -124,7 +124,6 @@ def attempt_upload(self, view):
             continue
 
         for filename in files:
-            print("found this one anyway: ", filename)
             if not same_name(filename) and text_based(filename):
                 print("adding: ", filename)
                 this_file_path = os.path.join(dirname, filename)
@@ -139,7 +138,6 @@ def attempt_upload(self, view):
 
     public = True
     try:
-        print("keys", gist_files_dict.keys())
         gists.upload(gist_files_dict, current_folder_name, public)
     except:
         print("failed gist upload...")
