@@ -1,0 +1,13 @@
+<snippet>
+    <description>adds public class with auto filename...</description>
+    <content>
+<![CDATA[
+public class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} {
+
+
+}
+]]>
+</content>
+    <tabTrigger>pu</tabTrigger>
+    <scope>source.chuck</scope>
+</snippet>
