@@ -3,7 +3,6 @@ ChucK-plugin-for-ST3
 
 A Sublime Text 3 plugin for ChucK, featuring syntax highlighting, tab completion, snippets (and *maybe* REPL-ish sessions).
 
-- Based on the [Supercollider ST2 plugin] [1].
 - [Sublime Text 3] [2].
 - [ChucK] [3].
 
