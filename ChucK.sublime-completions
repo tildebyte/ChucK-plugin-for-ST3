@@ -3,6 +3,7 @@
 
         "completions":
         [
+                { "trigger": "mtof", "contents": "Std.mtof =>" },
                 { "trigger": "Std.abs", "contents": "Std.abs( ${1:int} )" },
                 { "trigger": "Std.fabs", "contents": "Std.fabs( ${1:float} )" },
                 { "trigger": "Std.sgn", "contents": "Std.sgn( ${1:float} )" },
@@ -58,8 +59,11 @@
                 { "trigger": ".channels", "contents": ".channels" },
                 { "trigger": ".pos", "contents": ".pos" },
                 { "trigger": ".width", "contents": ".width" },
-                { "trigger": ".keyOn", "contents": ".keyOn(1);" },
-                { "trigger": ".keyOff", "contents": ".keyOff(1);" },
+                { "trigger": ".keyOn", "contents": ".keyOn();" },
+                { "trigger": ".keyOff", "contents": ".keyOff();" },
+                { "trigger": ".noteOn", "contents": ".noteOn(1);" },
+                { "trigger": ".noteOff", "contents": ".noteOff(1);" },
+
                 { "trigger": ".read", "contents": ".read" },
                 { "trigger": ".duration", "contents": "duration" },
                 { "trigger": ".set (ADSR generic)", "contents": "set( 2::ms, 171::ms, 0.20, 35::ms );  //a, d, s, r"},
@@ -99,27 +103,14 @@
                 "Math.PI",
                 "Math.TWO_PI",
                 "Math.RANDOM_MAX",
+
                 // types
-                "int",
-                "float",
-                "time",
-                "dur",
-                "void",
-                "complex",
-                "polar",
+                "int", "float", "string", "time", "dur", "void", "complex", "polar",
                 // time
-                "samp",
-                "ms",
-                "second",
-                "minute",
-                "hour",
-                "day",
-                "week",
+                "samp", "ms", "second", "minute", "hour", "day", "week", 
                 // specials
-                "now",
-                "dac;",
-                "adc;",
-                "blackhole;",
+                "now", "dac;", "adc;", "blackhole;",
+                
                 // UGens
                 { "trigger": "SinOsc", "contents": "SinOsc ${1:name} => " },
                 { "trigger": "PulseOsc", "contents": "PulseOsc ${1:name} => " },
@@ -129,7 +120,9 @@
                 { "trigger": "Phasor", "contents": "Phasor ${1:name} => " },
                 { "trigger": "Noise", "contents": "Noise ${1:name} => " },
                 { "trigger": "Impulse", "contents": "Impulse ${1:name} => " },
+                
                 { "trigger": "Step", "contents": "Step ${1:name} => " },
+                
                 { "trigger": "Gain", "contents": "Gain ${1:name} => " },
                 { "trigger": "SndBuf", "contents": "SndBuf ${1:name} => " },
                 { "trigger": "HalfRect", "contents": "HalfRect ${1:name} => " },
@@ -141,6 +134,7 @@
                 { "trigger": "CurveTable", "contents": "CurveTable ${1:name} => " },
                 { "trigger": "WarpTable", "contents": "WarpTable ${1:name} => " },
                 { "trigger": "LiSa", "contents": "LiSa ${1:name} => " },
+                
                 { "trigger": "OneZero", "contents": "OneZero ${1:name} => " },
                 { "trigger": "TwoZero", "contents": "TwoZero ${1:name} => " },
                 { "trigger": "OnePole", "contents": "OnePole ${1:name} => " },
@@ -153,9 +147,12 @@
                 { "trigger": "BPF", "contents": "BPF ${1:name} => " },
                 { "trigger": "BRF", "contents": "BRF ${1:name} => " },
                 { "trigger": "ResonZ", "contents": "ResonZ ${1:name} => " },
+                
                 { "trigger": "Dyno", "contents": "Dyno ${1:name} => " },
+                
                 { "trigger": "Envelope", "contents": "Envelope ${1:name} => " },
                 { "trigger": "ADSR", "contents": "ADSR ${1:name} => " },
+                
                 { "trigger": "Delay", "contents": "Delay ${1:name} => " },
                 { "trigger": "DelayA", "contents": "DelayA ${1:name} => " },
                 { "trigger": "DelayL", "contents": "DelayL ${1:name} => " },
