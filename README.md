@@ -1,3 +1,6 @@
+# This is essentially unmaintained, but issues/PRs are certainly welcomed.
+
+
 ChucK-plugin-for-ST3
 ====================
 
